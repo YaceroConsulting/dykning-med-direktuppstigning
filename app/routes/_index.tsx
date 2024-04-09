@@ -84,7 +84,7 @@ export default function Index() {
                 <DirektuppstigningQuiz question={question} reset={invalid === 0}/>
                 : null}
 
-            <div className="mx-auto mt-6 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none flex items-center justify-center space-x-3">
+            <div className="mx-auto mt-6 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none flex flex-wrap items-center place-content-center gap-2 space-x-3">
                 {invalidEl}
             </div>
 
