@@ -40,4 +40,5 @@ type SurfaceInterval = {
     hours: number
     minutes: number
     non_repeat?: boolean
+    group: string
 }

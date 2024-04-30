@@ -3,7 +3,10 @@ import { Dialog } from '@headlessui/react'
 import { useState } from 'react'
 
 const navigation = [
-    { name: 'Direktuppstigning', href: '/dykning-med-direktuppstigning/' },
+    {
+        name: 'Direktuppstigning',
+        href: '/dykning-med-direktuppstigning/direktuppstigning',
+    },
     {
         name: 'Upprepade dyk',
         href: '/dykning-med-direktuppstigning/upprepade-dyk',

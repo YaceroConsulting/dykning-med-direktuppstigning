@@ -10,6 +10,9 @@ export default {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
+            transitionDuration: {
+                '1400': '1400ms',
+            },
         },
     },
     plugins: [forms],

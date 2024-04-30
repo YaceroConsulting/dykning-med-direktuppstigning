@@ -67,3 +67,22 @@ export function getSurfaceInterval(group: string): SurfaceGroup {
     // @ts-expect-error ytintervall is a json object
     return ytintervall[group]
 }
+
+export function getSurfaceInterval2(
+    group: string,
+    hour: number,
+    minutes: number
+) {
+    // @ts-expect-error ytintervall is a json object
+    const x: SurfaceGroup = ytintervall[group]
+    const surfaceTime = hour * 60 + minutes
+    const maxIntervall = x.surface_interval.filter(
+        (i: SurfaceInterval) => surfaceTime <= i.hours * 60 + i.minutes
+    )
+    console.log({ group, maxIntervall })
+    return x.surface_interval.findIndex(
+        (i: SurfaceInterval) =>
+            i.hours === maxIntervall[0].hours &&
+            i.minutes === maxIntervall[0].minutes
+    )
+}

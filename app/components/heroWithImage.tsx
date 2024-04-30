@@ -20,7 +20,7 @@ export function HeroWithOffsetImage() {
                         <p className="text-lg leading-8 text-gray-600">
                             Safe return, life&apos;s gift
                         </p>
-                        <div className="mt-10 flex items-center gap-x-6">
+                        {/*                        <div className="mt-10 flex items-center gap-x-6">
                             <a
                                 href="#"
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -33,10 +33,10 @@ export function HeroWithOffsetImage() {
                             >
                                 Learn more <span aria-hidden="true">→</span>
                             </a>
-                        </div>
+                        </div>*/}
                     </div>
                     <img
-                        src="diving.png"
+                        src="/dykning-med-direktuppstigning/diving.png"
                         alt=""
                         className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
                     />

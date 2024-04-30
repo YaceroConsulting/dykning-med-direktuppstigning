@@ -1,4 +1,5 @@
 import { RadioGroup } from '@headlessui/react'
+import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 
 type GroupName = {
     name: string
@@ -27,24 +28,37 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export function SmallCards() {
+type SmallCardsProps = {
+    header: string
+    readerLabel: string
+    correct: string
+    incorrect: string[]
+}
+
+export function SmallCards({
+    header = 'Svarsalternativ',
+    readerLabel = 'Choose a diving group option',
+    correct,
+    incorrect,
+}: SmallCardsProps) {
     return (
         <div>
             <div className="flex items-center justify-between">
                 <h2 className="text-sm font-medium leading-6 text-gray-900">
-                    Svarsalternativ
+                    {header}
                 </h2>
             </div>
 
             <RadioGroup className="mt-2" name="groupAnswer">
                 <RadioGroup.Label className="sr-only">
-                    Choose a diving group option
+                    {readerLabel}
                 </RadioGroup.Label>
                 <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                     {groupNames.map((option) => (
                         <RadioGroup.Option
                             key={option.name}
                             value={option.name}
+                            disabled={correct !== ''}
                             className={({ focus, checked }) =>
                                 classNames(
                                     'cursor-pointer focus:outline-none',
@@ -58,9 +72,21 @@ export function SmallCards() {
                                 )
                             }
                         >
-                            <RadioGroup.Label as="span">
-                                {option.name}
-                            </RadioGroup.Label>
+                            <div className="flex w-fulls justify-center items-center space-x-3">
+                                {correct === option.name && (
+                                    <div className="text-emerald-500">
+                                        <CheckCircleIcon className="h-5 w-5" />
+                                    </div>
+                                )}
+                                {incorrect?.includes(option.name) && (
+                                    <div className="text-red-500">
+                                        <XCircleIcon className="h-5 w-5" />
+                                    </div>
+                                )}
+                                <RadioGroup.Label as="span" className="">
+                                    {option.name}
+                                </RadioGroup.Label>
+                            </div>
                         </RadioGroup.Option>
                     ))}
                 </div>

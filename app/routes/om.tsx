@@ -47,19 +47,19 @@ type Person = {
 const people: Array<Person> = [
     {
         name: 'Alexander Gimerius',
-        role: 'Upphovsman och idé till denna applikation',
+        role: 'Bollplank och idé till denna applikation',
         gitHubUrl: '',
         imageUrl: 'diver-avatar.png',
     },
     {
         name: 'Daria Lykova',
-        role: 'Proof of concept som en Blazor fullstack applikation',
+        role: 'Proof-of-concept som en Blazor fullstack applikation',
         gitHubUrl: 'https://github.com/dashlykova',
         imageUrl: 'https://avatars.githubusercontent.com/u/50490216?v=4',
     },
     {
         name: 'Marcus Holmgren',
-        role: 'Vidareutveckling i denna Remix SPA',
+        role: 'Vidareutveckling till denna Remix SPA',
         gitHubUrl: 'https://github.com/marcusholmgren',
         imageUrl: 'https://avatars.githubusercontent.com/u/183957?v=4',
     },

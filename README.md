@@ -13,7 +13,7 @@ Frontpage Haiku generated with the help of [PartyRock](https://partyrock.aws/u/p
 ## Data
 
 All data values are stored in JSON files. The data is extracted from the Swedish Navy's diving tables.
-The filenames below are described by the Swedish description from the original source table `USN v 6`
+The filenames below are described by the Swedish description from the original source table U.S. Navy Diving Manual (USN rev 6)
 
 -   `expositionstid.json` - _Maximal expositionstid samt gruppbeteckning efter dykning med direktuppstigning_. Före ytintervall.
 -   `ytintervall.json` - _Ytintervall för upprepade dyk med direktuppstigning_
