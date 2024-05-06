@@ -1,4 +1,4 @@
-import { RadioGroup } from '@headlessui/react'
+import { Radio, RadioGroup, Label } from '@headlessui/react'
 import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 
 type GroupName = {
@@ -42,7 +42,7 @@ export function SmallCards({
     incorrect,
 }: SmallCardsProps) {
     return (
-        <div>
+        <>
             <div className="flex items-center justify-between">
                 <h2 className="text-sm font-medium leading-6 text-gray-900">
                     {header}
@@ -50,12 +50,12 @@ export function SmallCards({
             </div>
 
             <RadioGroup className="mt-2" name="groupAnswer">
-                <RadioGroup.Label className="sr-only">
+                <Label className="sr-only">
                     {readerLabel}
-                </RadioGroup.Label>
+                </Label>
                 <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                     {groupNames.map((option) => (
-                        <RadioGroup.Option
+                        <Radio
                             key={option.name}
                             value={option.name}
                             disabled={correct !== ''}
@@ -83,14 +83,14 @@ export function SmallCards({
                                         <XCircleIcon className="h-5 w-5" />
                                     </div>
                                 )}
-                                <RadioGroup.Label as="span" className="">
+                                <Label as="span" className="">
                                     {option.name}
-                                </RadioGroup.Label>
+                                </Label>
                             </div>
-                        </RadioGroup.Option>
+                        </Radio>
                     ))}
                 </div>
             </RadioGroup>
-        </div>
+        </>
     )
 }
