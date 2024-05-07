@@ -17,6 +17,11 @@ describe('dykning med direktuppstigning före ytintervall', () => {
         expect(result).toBe(true)
     })
 
+    test('direktuppstigning 18 m & 60 min -> group K', () => {
+        const result = checkDiveGroupAnswer(18, 60, 'K')
+        expect(result).toBe(true)
+    })
+
     test('direktuppstigning 27.8 m & 4 min -> group A', () => {
         const result = checkDiveGroupAnswer(27.8, 4, 'A')
         expect(result).toBe(true)
