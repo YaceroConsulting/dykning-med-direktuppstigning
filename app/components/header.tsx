@@ -11,10 +11,10 @@ const navigation = [
         name: 'Upprepade dyk',
         href: '/dykning-med-direktuppstigning/upprepadedyk',
     },
-    {
+/*    {
         name: 'Multilevel dyk',
         href: '/dykning-med-direktuppstigning/multileveldyk',
-    },
+    },*/
     { name: 'Om', href: '/dykning-med-direktuppstigning/om' },
 ]
 

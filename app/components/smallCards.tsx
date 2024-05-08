@@ -2,18 +2,16 @@ import { Radio, RadioGroup, Label } from '@headlessui/react'
 import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import {
     Combobox,
-    ComboboxButton,
     ComboboxInput,
     ComboboxOption,
     ComboboxOptions,
-    Transition,
 } from '@headlessui/react'
 import {
     CheckIcon,
-    ChevronDownIcon,
     ChevronUpDownIcon,
 } from '@heroicons/react/20/solid'
 import { useState } from 'react'
+import {classNames} from "~/components/libs";
 
 type GroupName = {
     name: string
@@ -38,9 +36,7 @@ const groupNames: Array<GroupName> = [
     { name: 'Z' },
 ]
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
+
 
 type SmallCardsProps = {
     header: string
@@ -130,6 +126,7 @@ export function GroupCombobox({ name }: { name: string }) {
         >
             <div className="relative mt-2">
                 <ComboboxInput
+                    autoFocus
                     className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     autoComplete="off"
                     onChange={(event) => setQuery(event.target.value)}
