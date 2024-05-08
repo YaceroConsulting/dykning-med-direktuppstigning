@@ -2,7 +2,9 @@ import { expect, test, describe } from 'vitest'
 import {
     getDiveGroup,
     getSurfaceInterval,
-    getSurfaceInterval2, Hej, TwoDives,
+    getSurfaceInterval2,
+    Hej,
+    TwoDives,
 } from './practice'
 //import { getDiveGroupQuestions, checkDiveGroupAnswer } from './practice';
 
@@ -66,9 +68,9 @@ test('30 minuters expositionstid dyk 2 till 18 m, vilken yttid?', () => {
     const index = getSurfaceInterval2(förstaGrupp.dive_group, 1, 30)
     //expect(ytintervall).toBe({"hej": 2});
     expect(index).toStrictEqual({
-        "group": "J",
-        "hours": 1,
-        "minutes": 44,
+        group: 'J',
+        hours: 1,
+        minutes: 44,
     })
 
     // dyk 2
@@ -91,47 +93,50 @@ test('30 minuters expositionstid dyk 2 till 18 m, vilken yttid?', () => {
         expect(andraDykGrupp).toBe('K')*/
 })
 
-
 // test that given a start time add first dive time, the surface interval and start time for the second dive and the surface time for the second dive.
 // The resurface time is 2 minutes for each dive.
 describe('två dyk tid', () => {
     test('tider för två dyk', () => {
         const example: TwoDives = {
-            "startTime": new Date("2022-01-01T08:10:00"),
-            "firstDive": {
-                "time": 60,
-                "depth": 18,
-                "group": "K"
+            startTime: new Date('2022-01-01T08:10:00'),
+            firstDive: {
+                time: 60,
+                depth: 18,
+                group: 'K',
             },
-            "surfaceTime": {
-                "hours": 1,
-                "minutes": 30
+            surfaceTime: {
+                hours: 1,
+                minutes: 30,
             },
-            "secondDive": {
-                "time": 60,
-                "depth": 18,
-                "group": "K"
+            secondDive: {
+                time: 60,
+                depth: 18,
+                group: 'K',
             },
-            "group": {
-                "letter": "J",
-                "maxRemaining": 2,
-                "consumed": 58,
-                "maxExposition": 60,
-            }
+            group: {
+                letter: 'J',
+                maxRemaining: 2,
+                consumed: 58,
+                maxExposition: 60,
+            },
         }
 
         const tryit = new Hej(example)
-        expect(tryit.startTime.toISOString()).toBe("2022-01-01T07:10:00.000Z")
-        expect(tryit.resurfaceTime.toISOString()).toBe("2022-01-01T08:12:00.000Z")
-        expect(tryit.resurfaceGroup).toBe("K")
-        expect(tryit.secondDiveStartTime.toISOString()).toBe("2022-01-01T09:42:00.000Z")
-        expect(tryit.secondDiveGroup).toBe("J")
-        expect(tryit.secondResurfaceTime.toISOString()).toBe("2022-01-01T09:46:00.000Z")
-        expect(tryit.secondResurfaceGroup).toBe("K")
+        expect(tryit.startTime.toISOString()).toBe('2022-01-01T07:10:00.000Z')
+        expect(tryit.resurfaceTime.toISOString()).toBe(
+            '2022-01-01T08:12:00.000Z'
+        )
+        expect(tryit.resurfaceGroup).toBe('K')
+        expect(tryit.secondDiveStartTime.toISOString()).toBe(
+            '2022-01-01T09:42:00.000Z'
+        )
+        expect(tryit.secondDiveGroup).toBe('J')
+        expect(tryit.secondResurfaceTime.toISOString()).toBe(
+            '2022-01-01T09:46:00.000Z'
+        )
+        expect(tryit.secondResurfaceGroup).toBe('K')
     })
 })
-
-
 
 describe.skip('upprepade dykning med direktuppstigning', () => {
     test('upprepade dykning med direktuppstigning', () => {

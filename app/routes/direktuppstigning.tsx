@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import { checkDiveGroupAnswer, getDiveGroupQuestions } from '~/practice'
 import { ClientActionFunctionArgs, useActionData } from '@remix-run/react'
 import invariant from 'tiny-invariant'
-import type {MetaFunction} from "@remix-run/node";
-
+import type { MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = () => {
     return [
@@ -49,31 +48,22 @@ export default function Direktuppstigning() {
     useEffect(() => {
         if (data && data.correct && data.depth && data.time && data) {
             setCorrect(data.answer)
-            //setReset(true)
             setTimeout(() => {
                 setIncorrect([])
-                setQuestion({ depth: Number(data.depth), time: Number(data.time) })
+                setQuestion({
+                    depth: Number(data.depth),
+                    time: Number(data.time),
+                })
                 setCorrect('')
             }, 8000)
-            //setInvalid(0)
         }
         if (data && !data.correct) {
             setIncorrect((a) => [...a, data.answer])
-            //setInvalid((i) => i + 1)
             if ('vibrate' in navigator) {
                 navigator.vibrate(100)
             }
         }
     }, [data])
-
-    // const invalidEl = Array.from({ length: incorrect.length }).map((_, index) => (
-    //     <div
-    //         key={index}
-    //         className="border-solid border-2 border-pink-200 rounded shadow"
-    //     >
-    //         <XMarkIcon className="h-6 w-6 text-pink-500" />
-    //     </div>
-    // ))
 
     return (
         <div className="py-16">
@@ -86,10 +76,6 @@ export default function Direktuppstigning() {
                             incorrect={incorrect}
                         />
                     ) : null}
-
-                    {/*            <div className="mx-auto mt-6 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none flex items-center justify-center space-x-3">
-                {invalidEl}
-            </div>*/}
                 </div>
             </main>
         </div>

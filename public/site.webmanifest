@@ -1,1 +1,39 @@
-{"name":"Dykning med direktuppstigning","short_name":"direktuppstigning", "scope": "/dykning-med-direktuppstigning/", "start_url": "/dykning-med-direktuppstigning/", "icons":[{"src":"/dykning-med-direktuppstigning/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/dykning-med-direktuppstigning/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}], "screenshots": [{"src":"/dykning-med-direktuppstigning/desktop.jpg","sizes":"1212x638","type":"image/jpg","form_factor":"wide","label":"Dykning med direktuppstigning"},{"src":"/dykning-med-direktuppstigning/mobile.jpg","sizes":"375x664","type":"image/jpg","form_factor":"narrow","label":"Dykning med direktuppstigning"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone", "id": "diving", "lang": "sv"}
+{
+    "name": "Dykning med direktuppstigning",
+    "short_name": "direktuppstigning",
+    "scope": "/dykning-med-direktuppstigning/",
+    "start_url": "/dykning-med-direktuppstigning/",
+    "icons": [
+        {
+            "src": "/dykning-med-direktuppstigning/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/dykning-med-direktuppstigning/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/dykning-med-direktuppstigning/desktop.jpg",
+            "sizes": "1212x638",
+            "type": "image/jpg",
+            "form_factor": "wide",
+            "label": "Dykning med direktuppstigning"
+        },
+        {
+            "src": "/dykning-med-direktuppstigning/mobile.jpg",
+            "sizes": "375x664",
+            "type": "image/jpg",
+            "form_factor": "narrow",
+            "label": "Dykning med direktuppstigning"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "id": "diving",
+    "lang": "sv"
+}

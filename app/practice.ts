@@ -89,7 +89,6 @@ export function getSurfaceInterval2(
     return maxIntervall[0]
 }
 
-
 export function getTwoDives(): TwoDives {
     const startTime = new Date().setHours(8, 10)
     const firstDiveTime = new Date(startTime).setMinutes(
@@ -99,8 +98,12 @@ export function getTwoDives(): TwoDives {
         new Date(firstDiveTime).getMinutes() + 60 + 30
     )
     const firstDiveGroup = getDiveGroup(18, 60)
-    const surfaceTime = { hours: 1, minutes: 30}
-    const secondDiveGroup = getSurfaceInterval2(firstDiveGroup.dive_group, surfaceTime.hours, surfaceTime.minutes)
+    const surfaceTime = { hours: 1, minutes: 30 }
+    const secondDiveGroup = getSurfaceInterval2(
+        firstDiveGroup.dive_group,
+        surfaceTime.hours,
+        surfaceTime.minutes
+    )
 
     //TODO find table with consumed and max exposition
     const secondSurfaceGroup = getDiveGroup(18, 60)
@@ -109,45 +112,49 @@ export function getTwoDives(): TwoDives {
         startTime: new Date(startTime),
         firstDive: { time: 60, depth: 18, group: firstDiveGroup.dive_group },
         surfaceTime: { ...surfaceTime },
-        secondDive: { depth: secondSurfaceGroup.time_submerged, group: secondSurfaceGroup.dive_group},
-        group: { letter: secondDiveGroup.group, maxRemaining: 2, consumed: 58, maxExposition: 60 }
+        secondDive: {
+            depth: secondSurfaceGroup.time_submerged,
+            group: secondSurfaceGroup.dive_group,
+        },
+        group: {
+            letter: secondDiveGroup.group,
+            maxRemaining: 2,
+            consumed: 58,
+            maxExposition: 60,
+        },
     }
 }
 
-
-
 export type TwoDives = {
-    startTime:   Date;
-    firstDive:   Dive;
-    surfaceTime: SurfaceTime;
-    secondDive:  Dive;
-    group:       Group;
+    startTime: Date
+    firstDive: Dive
+    surfaceTime: SurfaceTime
+    secondDive: Dive
+    group: Group
     //secondResurface: Dive;
 }
 
 export type Dive = {
-    time:  number;
-    depth: number;
-    group: string;
+    time: number
+    depth: number
+    group: string
 }
 
 export type Group = {
-    letter:        string;
-    maxRemaining:  number;
-    consumed:      number;
-    maxExposition: number;
+    letter: string
+    maxRemaining: number
+    consumed: number
+    maxExposition: number
 }
 
 export type SurfaceTime = {
-    hours:   number;
-    minutes: number;
+    hours: number
+    minutes: number
 }
 
-
-
 export class Hej {
-    private RESURFACE_TIME = 2;
-    private data: TwoDives;
+    private RESURFACE_TIME = 2
+    private data: TwoDives
     constructor(data: TwoDives) {
         this.data = data
     }
@@ -160,21 +167,31 @@ export class Hej {
     // get resurface time
     get resurfaceTime() {
         const date = this.startTime
-        date.setMinutes(date.getMinutes() + this.data.firstDive.time + this.RESURFACE_TIME)
-        return date;
+        date.setMinutes(
+            date.getMinutes() + this.data.firstDive.time + this.RESURFACE_TIME
+        )
+        return date
     }
 
     // get second dive start time
     get secondDiveStartTime() {
         const date = this.resurfaceTime
-        date.setMinutes(date.getMinutes() + this.data.surfaceTime.hours * 60 + this.data.surfaceTime.minutes)
+        date.setMinutes(
+            date.getMinutes() +
+                this.data.surfaceTime.hours * 60 +
+                this.data.surfaceTime.minutes
+        )
         return date
     }
 
     // get second resurface time
     get secondResurfaceTime() {
         const date = this.secondDiveStartTime
-        date.setMinutes(date.getMinutes() + (this.data.group.maxExposition - this.data.group.consumed) + this.RESURFACE_TIME)
+        date.setMinutes(
+            date.getMinutes() +
+                (this.data.group.maxExposition - this.data.group.consumed) +
+                this.RESURFACE_TIME
+        )
         return date
     }
 

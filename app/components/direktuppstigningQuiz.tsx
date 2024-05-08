@@ -67,7 +67,8 @@ export function DirektuppstigningQuiz({
                 >
                     <div className="bg-white px-4 sm:px-6 h-full">
                         <p className="text-xl leading-8 text-gray-700">
-                            🎉 Korrekt gruppbeteckning är <strong>{correct}</strong>
+                            🎉 Korrekt gruppbeteckning är{' '}
+                            <strong>{correct}</strong>
                         </p>
                         <div className="pt-16">
                             <AnimatedDots />
