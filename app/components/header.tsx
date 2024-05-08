@@ -1,10 +1,21 @@
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
-import {Dialog} from "@headlessui/react";
-import {useState} from "react";
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Dialog } from '@headlessui/react'
+import { useState } from 'react'
 
 const navigation = [
-    {name: 'Direktuppstigning', href: '/'},
-    {name: 'Om', href: 'om'},
+    {
+        name: 'Direktuppstigning',
+        href: '/dykning-med-direktuppstigning/direktuppstigning',
+    },
+    {
+        name: 'Upprepade dyk',
+        href: '/dykning-med-direktuppstigning/upprepadedyk',
+    },
+/*    {
+        name: 'Multilevel dyk',
+        href: '/dykning-med-direktuppstigning/multileveldyk',
+    },*/
+    { name: 'Om', href: '/dykning-med-direktuppstigning/om' },
 ]
 
 export function Header() {
@@ -12,9 +23,15 @@ export function Header() {
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <nav
+                className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+                aria-label="Global"
+            >
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <a
+                        href="/dykning-med-direktuppstigning/"
+                        className="-m-1.5 p-1.5"
+                    >
                         <span className="sr-only">Your Company</span>
                         <img
                             className="h-8 w-auto"
@@ -30,12 +47,16 @@ export function Header() {
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
+                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
-                        <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                        <a
+                            key={item.name}
+                            href={item.href}
+                            className="text-sm font-semibold leading-6 text-gray-900"
+                        >
                             {item.name}
                         </a>
                     ))}
@@ -46,12 +67,19 @@ export function Header() {
                     </a>*/}
                 </div>
             </nav>
-            <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                <div className="fixed inset-0 z-50"/>
-                <Dialog.Panel
-                    className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <Dialog
+                as="div"
+                className="lg:hidden"
+                open={mobileMenuOpen}
+                onClose={setMobileMenuOpen}
+            >
+                <div className="fixed inset-0 z-50" />
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="/" className="-m-1.5 p-1.5">
+                        <a
+                            href="/dykning-med-direktuppstigning/"
+                            className="-m-1.5 p-1.5"
+                        >
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-8 w-auto"
@@ -65,7 +93,7 @@ export function Header() {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
+                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
@@ -82,7 +110,7 @@ export function Header() {
                                 ))}
                             </div>
                             <div className="py-6">
-                              {/*  <a
+                                {/*  <a
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                 >
@@ -94,5 +122,5 @@ export function Header() {
                 </Dialog.Panel>
             </Dialog>
         </header>
-    );
+    )
 }

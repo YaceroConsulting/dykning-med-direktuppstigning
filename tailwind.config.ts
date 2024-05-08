@@ -4,16 +4,16 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 import forms from '@tailwindcss/forms'
 
 export default {
-  content: ['./app/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-      },
+    content: ['./app/**/*.{js,jsx,ts,tsx}'],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            },
+            transitionDuration: {
+                '1400': '1400ms',
+            },
+        },
     },
-  },
-  plugins: [
-    forms
-  ],
+    plugins: [forms],
 } satisfies Config
-
