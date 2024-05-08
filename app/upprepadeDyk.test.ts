@@ -98,7 +98,7 @@ test('30 minuters expositionstid dyk 2 till 18 m, vilken yttid?', () => {
 describe('två dyk tid', () => {
     test('tider för två dyk', () => {
         const example: TwoDives = {
-            startTime: new Date('2022-01-01T08:10:00'),
+            startTime: new Date('2022-01-01T08:10:00.000Z'),
             firstDive: {
                 time: 60,
                 depth: 18,
@@ -122,17 +122,17 @@ describe('två dyk tid', () => {
         }
 
         const tryit = new Hej(example)
-        expect(tryit.startTime.toISOString()).toBe('2022-01-01T07:10:00.000Z')
+        expect(tryit.startTime.toISOString()).toBe('2022-01-01T08:10:00.000Z')
         expect(tryit.resurfaceTime.toISOString()).toBe(
-            '2022-01-01T08:12:00.000Z'
+            '2022-01-01T09:12:00.000Z'
         )
         expect(tryit.resurfaceGroup).toBe('K')
         expect(tryit.secondDiveStartTime.toISOString()).toBe(
-            '2022-01-01T09:42:00.000Z'
+            '2022-01-01T10:42:00.000Z'
         )
         expect(tryit.secondDiveGroup).toBe('J')
         expect(tryit.secondResurfaceTime.toISOString()).toBe(
-            '2022-01-01T09:46:00.000Z'
+            '2022-01-01T10:46:00.000Z'
         )
         expect(tryit.secondResurfaceGroup).toBe('K')
     })
