@@ -108,7 +108,7 @@ export function getTwoDives(): TwoDives {
     //TODO find table with consumed and max exposition
     const secondSurfaceGroup = getDiveGroup(18, 60)
 
-    return {
+    const result = {
         startTime: new Date(startTime),
         firstDive: { time: 60, depth: 18, group: firstDiveGroup.dive_group },
         surfaceTime: { ...surfaceTime },
@@ -123,6 +123,8 @@ export function getTwoDives(): TwoDives {
             maxExposition: 60,
         },
     }
+    console.log(JSON.stringify(result));
+    return result;
 }
 
 export type TwoDives = {

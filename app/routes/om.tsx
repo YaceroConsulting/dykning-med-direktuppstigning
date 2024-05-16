@@ -49,7 +49,7 @@ const people: Array<Person> = [
         name: 'Alexander Gimerius',
         role: 'Bollplank och idé till denna applikation',
         gitHubUrl: '',
-        imageUrl: 'diver-avatar.png',
+        imageUrl: 'diver-avatar.jpg',
     },
     {
         name: 'Daria Lykova',
