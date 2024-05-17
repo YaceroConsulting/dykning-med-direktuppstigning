@@ -126,6 +126,8 @@ describe('två dyk tid', () => {
         expect(tryit.resurfaceTime.toISOString()).toBe(
             '2022-01-01T09:12:00.000Z'
         )
+        expect(tryit.firstDiveDepth).toBe(18)
+        expect(tryit.firstDiveTime).toBe(60)
         expect(tryit.resurfaceGroup).toBe('K')
         expect(tryit.secondDiveStartTime.toISOString()).toBe(
             '2022-01-01T10:42:00.000Z'

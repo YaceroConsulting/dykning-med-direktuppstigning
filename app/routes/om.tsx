@@ -46,7 +46,7 @@ type Person = {
 
 const people: Array<Person> = [
     {
-        name: 'Alexander Gimerius',
+        name: 'Alexander Gimerus',
         role: 'Bollplank och idé till denna applikation',
         gitHubUrl: '',
         imageUrl: 'diver-avatar.jpg',
@@ -59,11 +59,10 @@ const people: Array<Person> = [
     },
     {
         name: 'Marcus Holmgren',
-        role: 'Vidareutveckling till denna Remix SPA',
+        role: 'Design och vidareutveckling av denna Remix SPA',
         gitHubUrl: 'https://github.com/marcusholmgren',
         imageUrl: 'https://avatars.githubusercontent.com/u/183957?v=4',
     },
-    // More people...
 ]
 
 type TeamSectionProps = {

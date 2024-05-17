@@ -3,7 +3,7 @@ import { HeroWithOffsetImage } from '~/components/heroWithImage'
 
 export const meta: MetaFunction = () => {
     return [
-        { title: 'Dyk app' },
+        { title: 'Dykupp' },
         {
             name: 'description',
             content:

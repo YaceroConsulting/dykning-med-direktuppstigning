@@ -9,7 +9,7 @@ Frontpage Haiku generated with the help of [PartyRock](https://partyrock.aws/u/p
 ## Roadmap
 
 -   [x] Övning av gruppbeteckning efter dykning med direktuppstigning med maximal expositionstid samt
--   [ ] Övning av upprepade dyk med direktuppstigning med direktuppstigning
+-   [X] Övning av upprepade dyk med direktuppstigning med direktuppstigning
 -   [ ] Övning av upprepade dyk med olika djup (_multi-level diving_)
 
 ## Data

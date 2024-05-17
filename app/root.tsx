@@ -66,7 +66,7 @@ export default function App() {
 export function HydrateFallback() {
     return (
         <div className="py-16 p-10">
-            <p className="text-gray-600 italic">Loading...</p>
+            <p className="text-gray-600 italic">Laddar innehåll...</p>
         </div>
     )
 }

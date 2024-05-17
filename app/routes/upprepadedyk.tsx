@@ -108,7 +108,7 @@ export default function UpprepadeDyk() {
     }, [data, answerResult])
 
     if (!question) {
-        return <div>Loading...</div>
+        return <div>Laddar innehåll...</div>
     } else {
         const q1El = progress.q1 ? (
             <strong>{question.resurfaceGroup}</strong>
@@ -116,7 +116,10 @@ export default function UpprepadeDyk() {
             <strong>?</strong>
         )
         const q2El = progress.q2 ? (
-            <strong>{question.secondDiveGroup}</strong>
+            <>
+                Dykstart {timeFormat.format(question?.secondDiveStartTime)}
+                <strong>{question.secondDiveGroup}</strong>
+            </>
         ) : (
             <strong>?</strong>
         )
@@ -124,7 +127,7 @@ export default function UpprepadeDyk() {
             <div>
                 18 m
                 <div className="">
-                    Max tid <strong>{data.group.maxRemaining} min</strong>
+                    Max dyk tid <strong>{data.group.maxRemaining} min</strong>
                 </div>
                 <div className="pt-4">
                     +{data.group.consumed} min
@@ -135,7 +138,7 @@ export default function UpprepadeDyk() {
             <div>
                 18 m
                 <div className="">
-                    Max tid <strong>?</strong> min
+                    Max dyk tid <strong>?</strong> min
                 </div>
                 <div className="pt-4">
                     +? min
@@ -144,7 +147,10 @@ export default function UpprepadeDyk() {
             </div>
         )
         const q4El = progress.q4 ? (
-            <strong>{question.secondResurfaceGroup}</strong>
+            <strong>
+                Yta {timeFormat.format(question?.secondResurfaceTime)}
+                {question.secondResurfaceGroup}
+            </strong>
         ) : (
             <strong>?</strong>
         )
@@ -156,6 +162,8 @@ export default function UpprepadeDyk() {
             </p>
         ) : null
 
+
+
         return (
             <div className="py-16">
                 <h1>Upprepade dyk</h1>
@@ -164,7 +172,7 @@ export default function UpprepadeDyk() {
                 </p>
                 <div className="grid grid-cols-6">
                     <div className="bg-gradient-to-b from-orange-200 to-white flex flex-col justify-between">
-                        🌞 Start kl: {timeFormat.format(question?.startTime)}
+                        🌞 Dykstart {timeFormat.format(question?.startTime)}
                         <div className="transform scale-x-[-1] self-center">
                             🛥️
                         </div>
@@ -173,24 +181,19 @@ export default function UpprepadeDyk() {
                     <div className="bg-gradient-to-b from-orange-200 to-white col-start-3 col-span-2">
                         <div className="flex justify-between p-3 ">
                             <div className="flex flex-col gap-y-6">
-                                kl: {timeFormat.format(question?.resurfaceTime)}
+                                Yta {timeFormat.format(question?.resurfaceTime)}
                                 {q1El}
                             </div>
                             <div className="self-center pt-4">
-                                {question.surfaceTime} 1:30
+                                Yttid {question.surfaceTime}
                             </div>
                             <div className="flex flex-col gap-y-6">
-                                kl:{' '}
-                                {timeFormat.format(
-                                    question?.secondDiveStartTime
-                                )}
                                 {q2El}
                             </div>
                         </div>
                     </div>
                     <div className="bg-gradient-to-b from-orange-200 to-white"/>
                     <div className="col-start-6 flex flex-col gap-y-6 p-3 bg-gradient-to-b from-orange-200 to-white">
-                        kl: {timeFormat.format(question?.secondResurfaceTime)}
                         {q4El}
                     </div>
                     {/* rad 2 */}
@@ -201,8 +204,8 @@ export default function UpprepadeDyk() {
                         <div className="self-start transform scale-x-[-1]">🐟</div>
                     </div>
                     <div className="bg-gradient-to-t from-blue-500 to-blue-300 flex flex-col justify-end col-span-3">
-                        18 m 🤿🪸
-                        <div className="">60 min</div>
+                        {data.firstDive.depth} m
+                        <div className="">{data.firstDive.time} min</div>
 
                     </div>
 
@@ -222,7 +225,7 @@ export default function UpprepadeDyk() {
                                 <GroupQuestion
                                     answer={question.resurfaceGroup}
                                     name="first-group"
-                                    question="Du dyker ner till 18 meter i 60 minuter vilken gruppbeteckning före ytintervall är det?"
+                                    question={`Du dyker ner till ${question.firstDiveDepth} meter i ${question.firstDiveTime} minuter vilken gruppbeteckning vid ytan har du?`}
                                     extra="Uppstigningstid ca 2 minuter"
                                 />
                             )}
@@ -230,7 +233,7 @@ export default function UpprepadeDyk() {
                                 <GroupQuestion
                                     answer={question.secondDiveGroup}
                                     name="second-group"
-                                    question="Men en yttid på 1:30 vilken gruppbeteckning efter ytintervall?"
+                                    question={`Men en yttid på ${question.surfaceTime} sedan föregående dyk, vilken gruppbeteckning har du vid nedstigning?`}
                                 />
                             ) : null}
                             {progress.q1 && progress.q2 && !progress.q3 ? (
@@ -315,7 +318,7 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
 
     return (
         <>
-            <p className="text-gray-700">Räkna ut maximal expositionstid från L-Tabell</p>
+            <p className="text-gray-700">Från L-Tabellen räkna fram kvarvarande expositiondstid</p>
             <input
                 type="hidden"
                 name="max-exposition"
@@ -338,7 +341,7 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
                         htmlFor="max-exposition-answer"
                         className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                        Max exposition tid
+                        Max expositionstid för djupet
                     </label>
                     <div className="mt-2 flex items-center gap-2">
                         <Input

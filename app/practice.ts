@@ -166,6 +166,14 @@ export class Hej {
         return new Date(this.data.startTime)
     }
 
+    get firstDiveDepth() {
+        return this.data.firstDive.depth
+    }
+
+    get firstDiveTime() {
+        return this.data.firstDive.time
+    }
+
     // get resurface time
     get resurfaceTime() {
         const date = this.startTime
