@@ -27,24 +27,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <link
                     rel="apple-touch-icon"
                     sizes="180x180"
-                    href="/dykning-med-direktuppstigning/apple-touch-icon.png"
+                    href="/dykupp/apple-touch-icon.png"
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="32x32"
-                    href="/dykning-med-direktuppstigning/favicon-32x32.png"
+                    href="/dykupp/favicon-32x32.png"
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="16x16"
-                    href="/dykning-med-direktuppstigning/favicon-16x16.png"
+                    href="/dykupp/favicon-16x16.png"
                 />
-                <link
-                    rel="manifest"
-                    href="/dykning-med-direktuppstigning/site.webmanifest"
-                />
+                <link rel="manifest" href="/dykupp/site.webmanifest" />
                 <Meta />
                 <Links />
             </head>

@@ -5,17 +5,17 @@ import { useState } from 'react'
 const navigation = [
     {
         name: 'Direktuppstigning',
-        href: '/dykning-med-direktuppstigning/direktuppstigning',
+        href: '/dykupp/direktuppstigning',
     },
     {
         name: 'Upprepade dyk',
-        href: '/dykning-med-direktuppstigning/upprepadedyk',
+        href: '/dykupp/upprepadedyk',
     },
-/*    {
+    /*    {
         name: 'Multilevel dyk',
-        href: '/dykning-med-direktuppstigning/multileveldyk',
+        href: '/dykupp/multileveldyk',
     },*/
-    { name: 'Om', href: '/dykning-med-direktuppstigning/om' },
+    { name: 'Om', href: '/dykupp/om' },
 ]
 
 export function Header() {
@@ -28,10 +28,7 @@ export function Header() {
                 aria-label="Global"
             >
                 <div className="flex lg:flex-1">
-                    <a
-                        href="/dykning-med-direktuppstigning/"
-                        className="-m-1.5 p-1.5"
-                    >
+                    <a href="/dykupp/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <img
                             className="h-8 w-auto"
@@ -76,10 +73,7 @@ export function Header() {
                 <div className="fixed inset-0 z-50" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a
-                            href="/dykning-med-direktuppstigning/"
-                            className="-m-1.5 p-1.5"
-                        >
+                        <a href="/dykupp/" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-8 w-auto"

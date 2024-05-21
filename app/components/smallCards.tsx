@@ -1,17 +1,16 @@
-import { Radio, RadioGroup, Label } from '@headlessui/react'
 import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/solid'
 import {
     Combobox,
     ComboboxInput,
     ComboboxOption,
     ComboboxOptions,
+    Radio,
+    RadioGroup,
+    Label,
 } from '@headlessui/react'
-import {
-    CheckIcon,
-    ChevronUpDownIcon,
-} from '@heroicons/react/20/solid'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
-import {classNames} from "~/components/libs";
+import { classNames } from '~/components/libs'
 
 type GroupName = {
     name: string
@@ -35,8 +34,6 @@ const groupNames: Array<GroupName> = [
     { name: 'O' },
     { name: 'Z' },
 ]
-
-
 
 type SmallCardsProps = {
     header: string

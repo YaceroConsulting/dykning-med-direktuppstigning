@@ -5,10 +5,10 @@ import { copyFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 export default defineConfig({
-    base: '/dykning-med-direktuppstigning/',
+    base: '/dykupp/',
     plugins: [
         remix({
-            basename: '/dykning-med-direktuppstigning/',
+            basename: '/dykupp/',
             ssr: false,
             buildEnd(args) {
                 if (!args.viteConfig.isProduction) return

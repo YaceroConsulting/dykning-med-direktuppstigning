@@ -89,8 +89,12 @@ export function getSurfaceInterval2(
     return maxIntervall[0]
 }
 
+function random(min: number = 6, max: number = 13) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 export function getTwoDives(): TwoDives {
-    const startTime = new Date().setHours(8, 10)
+    const startTime = new Date().setHours(random(6, 13), random(0, 59))
     const firstDiveTime = new Date(startTime).setMinutes(
         new Date(startTime).getMinutes() + 60 + 2
     )
@@ -123,8 +127,8 @@ export function getTwoDives(): TwoDives {
             maxExposition: 60,
         },
     }
-    console.log(JSON.stringify(result));
-    return result;
+    console.log(JSON.stringify(result))
+    return result
 }
 
 export type TwoDives = {

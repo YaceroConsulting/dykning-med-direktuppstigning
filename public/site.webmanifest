@@ -1,30 +1,30 @@
 {
     "name": "Dykning med direktuppstigning",
     "short_name": "direktuppstigning",
-    "scope": "/dykning-med-direktuppstigning/",
-    "start_url": "/dykning-med-direktuppstigning/",
+    "scope": "/dykupp/",
+    "start_url": "/dykupp/",
     "icons": [
         {
-            "src": "/dykning-med-direktuppstigning/android-chrome-192x192.png",
+            "src": "/dykupp/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/dykning-med-direktuppstigning/android-chrome-512x512.png",
+            "src": "/dykupp/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "screenshots": [
         {
-            "src": "/dykning-med-direktuppstigning/desktop.jpg",
+            "src": "/dykupp/desktop.jpg",
             "sizes": "1212x638",
             "type": "image/jpg",
             "form_factor": "wide",
             "label": "Dykning med direktuppstigning"
         },
         {
-            "src": "/dykning-med-direktuppstigning/mobile.jpg",
+            "src": "/dykupp/mobile.jpg",
             "sizes": "375x664",
             "type": "image/jpg",
             "form_factor": "narrow",

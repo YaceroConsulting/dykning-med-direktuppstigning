@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from 'react'
 import { AcademicCapIcon } from '@heroicons/react/20/solid'
 import { GroupCombobox } from '~/components/smallCards'
-import {classNames} from "~/components/libs";
+import { classNames } from '~/components/libs'
 
 export const clientLoader = async () => {
     return getTwoDives()
@@ -49,12 +49,16 @@ export const clientAction = async ({
         if (groupAnswerCorrectFor('first-group')) {
             return { q1: true }
         }
-        return groupAnswerLowFor('first-group') ? {correction: LOW_GROUP} : {correction: HIGH_GROUP}
+        return groupAnswerLowFor('first-group')
+            ? { correction: LOW_GROUP }
+            : { correction: HIGH_GROUP }
     } else if (data.has('second-group')) {
         if (groupAnswerCorrectFor('second-group')) {
             return { q2: true }
         }
-        return groupAnswerLowFor('second-group') ? {correction: LOW_GROUP} : {correction: HIGH_GROUP};
+        return groupAnswerLowFor('second-group')
+            ? { correction: LOW_GROUP }
+            : { correction: HIGH_GROUP }
     } else if (data.has('max-exposition-answer')) {
         const answerCorrect = (name: string) =>
             Number(data.get(`${name}-answer`)) === Number(data.get(name))
@@ -67,13 +71,24 @@ export const clientAction = async ({
         ) {
             return { q3: true }
         }
-        console.log(data.get('remaining-exposition-answer'), data.get('remaining-exposition'))
-        return answerLow('remaining-exposition') ? {correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`} : {correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`};
+        console.log(
+            data.get('remaining-exposition-answer'),
+            data.get('remaining-exposition')
+        )
+        return answerLow('remaining-exposition')
+            ? {
+                  correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`,
+              }
+            : {
+                  correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`,
+              }
     } else if (data.has('fourth-group')) {
         if (groupAnswerCorrectFor('fourth-group')) {
             return { q4: true }
         }
-        return groupAnswerLowFor('fourth-group') ? {correction: LOW_GROUP} : {correction: HIGH_GROUP};
+        return groupAnswerLowFor('fourth-group')
+            ? { correction: LOW_GROUP }
+            : { correction: HIGH_GROUP }
     }
     return {}
 }
@@ -99,11 +114,12 @@ export default function UpprepadeDyk() {
         //console.log("Data", data)
         console.log('Data2', answerResult)
         if (answerResult === undefined || answerResult.q4) {
+            console.log('Alla frågor besvarade')
             setQuestion(new Hej(data))
         }
 
         if (!answerResult?.correction) {
-            setProgress((p) => ({...p, ...answerResult}))
+            setProgress((p) => ({ ...p, ...answerResult }))
         }
     }, [data, answerResult])
 
@@ -118,10 +134,12 @@ export default function UpprepadeDyk() {
         const q2El = progress.q2 ? (
             <>
                 Dykstart {timeFormat.format(question?.secondDiveStartTime)}
-                <strong>{question.secondDiveGroup}</strong>
+                <strong className="self-end">{question.secondDiveGroup}</strong>
             </>
         ) : (
-            <strong>?</strong>
+            <div className="min-w-10 flex justify-end h-full">
+                <strong className="content-end self-end">?</strong>
+            </div>
         )
         const q3El = progress.q3 ? (
             <div>
@@ -147,29 +165,27 @@ export default function UpprepadeDyk() {
             </div>
         )
         const q4El = progress.q4 ? (
-            <strong>
+            <div className="flex flex-col gap-y-6">
                 Yta {timeFormat.format(question?.secondResurfaceTime)}
-                {question.secondResurfaceGroup}
-            </strong>
+                <strong>{question.secondResurfaceGroup}</strong>
+            </div>
         ) : (
-            <strong>?</strong>
+            <div className="min-w-10 flex h-full">
+                <strong className="content-end">?</strong>
+            </div>
         )
 
         //debugger
-        const hejEl = answerResult?.correction ? (
+        const answerCorrectionEl = answerResult?.correction ? (
             <p className="mt-3 text-sm leading-6 text-red-600">
                 {answerResult.correction}
             </p>
         ) : null
 
-
-
         return (
             <div className="py-16">
                 <h1>Upprepade dyk</h1>
-                <p>
-                    ...
-                </p>
+                <p>...</p>
                 <div className="grid grid-cols-6">
                     <div className="bg-gradient-to-b from-orange-200 to-white flex flex-col justify-between">
                         🌞 Dykstart {timeFormat.format(question?.startTime)}
@@ -177,7 +193,7 @@ export default function UpprepadeDyk() {
                             🛥️
                         </div>
                     </div>
-                    <div className="bg-gradient-to-b from-orange-200 to-white"/>
+                    <div className="bg-gradient-to-b from-orange-200 to-white" />
                     <div className="bg-gradient-to-b from-orange-200 to-white col-start-3 col-span-2">
                         <div className="flex justify-between p-3 ">
                             <div className="flex flex-col gap-y-6">
@@ -187,28 +203,23 @@ export default function UpprepadeDyk() {
                             <div className="self-center pt-4">
                                 Yttid {question.surfaceTime}
                             </div>
-                            <div className="flex flex-col gap-y-6">
-                                {q2El}
-                            </div>
+                            <div className="flex flex-col gap-y-6">{q2El}</div>
                         </div>
                     </div>
-                    <div className="bg-gradient-to-b from-orange-200 to-white"/>
+                    <div className="bg-gradient-to-b from-orange-200 to-white" />
                     <div className="col-start-6 flex flex-col gap-y-6 p-3 bg-gradient-to-b from-orange-200 to-white">
                         {q4El}
                     </div>
                     {/* rad 2 */}
-                    <div
-                        className="bg-gradient-to-t from-blue-500 to-blue-300  flex flex-col justify-between p-4">
-                        <div className="self-end transform scale-x-[-1]">🐠</div>
-                        <div className="self-center transform scale-x-[-1]">🐡</div>
-                        <div className="self-start transform scale-x-[-1]">🐟</div>
-                    </div>
-                    <div className="bg-gradient-to-t from-blue-500 to-blue-300 flex flex-col justify-end col-span-3">
+                    <div className="bg-gradient-to-t from-blue-500 to-blue-300 flex flex-col justify-end col-span-1 col-start-2">
                         {data.firstDive.depth} m
                         <div className="">{data.firstDive.time} min</div>
-
                     </div>
-
+                    <div className="bg-gradient-to-t from-blue-500 to-blue-300  flex flex-col justify-between p-4 col-span-2">
+                        <div className="self-end">🐠</div>
+                        <div className="self-center scale-125">🐡</div>
+                        <div className="self-start scale-150">🐟</div>
+                    </div>
 
                     <div className="bg-gradient-to-t from-blue-500 to-blue-300 col-start-5 col-span-2">
                         {q3El}
@@ -250,19 +261,30 @@ export default function UpprepadeDyk() {
                                     extra="Uppstigningstid ca 2 minuter"
                                 />
                             ) : null}
-                            <div className="mt-3">
-                                {hejEl}
-                                <Button
-                                    type="submit"
-                                    className="rounded bg-indigo-600 py-2 px-4 text-sm text-white data-[hover]:bg-indgo-500 data-[active]:bg-indigo-700 w-40 flex justify-between"
-                                >
-                                    <AcademicCapIcon
-                                        className="-ml-0.5 h-5 w-5"
-                                        aria-hidden="true"
-                                    />
-                                    Kontrollera svar
-                                </Button>
-                            </div>
+                            {progress.q1 &&
+                            progress.q2 &&
+                            progress.q3 &&
+                            progress.q4 ? (
+                                <div>
+                                    <p className="text-gray-700">
+                                        Du har svarat rätt på alla frågor 🎉
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="mt-3">
+                                    {answerCorrectionEl}
+                                    <Button
+                                        type="submit"
+                                        className="rounded bg-indigo-600 py-2 px-4 text-sm text-white data-[hover]:bg-indgo-500 data-[active]:bg-indigo-700 w-40 flex justify-between"
+                                    >
+                                        <AcademicCapIcon
+                                            className="-ml-0.5 h-5 w-5"
+                                            aria-hidden="true"
+                                        />
+                                        Kontrollera svar
+                                    </Button>
+                                </div>
+                            )}
                         </div>
                     </Form>
                 </div>
@@ -291,24 +313,23 @@ function GroupQuestion({ answer, name, question, extra }: GroupQuestionProps) {
                 {extra ? (
                     <p className="text-sm leading-6 text-gray-600">{extra}</p>
                 ) : null}
-                <input type="hidden" name={name} value={answer}/>
+                <input type="hidden" name={name} value={answer} />
                 <div className="mt-2 max-w-32">
-                    <GroupCombobox name={`${name}-answer`}/>
+                    <GroupCombobox name={`${name}-answer`} />
                 </div>
             </div>
         </div>
     )
 }
 
-
 type DecompressionQuestionProps = {
     group: Group
 }
 
-function DecompressionQuestion({group}: DecompressionQuestionProps) {
+function DecompressionQuestion({ group }: DecompressionQuestionProps) {
     const [maxExposition, setMaxExposition] = useState<number>()
     const [consumed, setConsumed] = useState<number>()
-    const [remaining, setRemaining] = useState<number>()
+    const [remaining, setRemaining] = useState<number>(0)
 
     useEffect(() => {
         if (maxExposition && consumed) {
@@ -318,7 +339,9 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
 
     return (
         <>
-            <p className="text-gray-700">Från L-Tabellen räkna fram kvarvarande expositiondstid</p>
+            <p className="text-gray-700">
+                Från L-Tabellen räkna fram kvarvarande expositiondstid
+            </p>
             <input
                 type="hidden"
                 name="max-exposition"
@@ -357,7 +380,9 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
                             }
                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
-                        -
+                        <strong className="pl-4 text-gray-800 text-xl">
+                            -
+                        </strong>
                     </div>
                 </div>
                 <div className="sm:col-span-2">
@@ -380,7 +405,9 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
                             }
                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
-                        =
+                        <strong className="pl-4 text-gray-800 text-xl">
+                            =
+                        </strong>
                     </div>
                 </div>
 
@@ -397,8 +424,11 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
                             name="remaining-exposition-answer"
                             autoComplete="off"
                             readOnly
-                            value={maxExposition && consumed ? remaining : ''}
-                            className={classNames("block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", (remaining ?? 0) > -1 ? "": "text-red-800")}
+                            value={remaining}
+                            className={classNames(
+                                'block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
+                                (remaining ?? 0) > -1 ? '' : 'text-red-800'
+                            )}
                         />
                     </div>
                 </div>
@@ -406,4 +436,3 @@ function DecompressionQuestion({group}: DecompressionQuestionProps) {
         </>
     )
 }
-
