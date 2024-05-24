@@ -71,17 +71,19 @@ export const clientAction = async ({
         ) {
             return { q3: true }
         }
-        console.log(
-            data.get('remaining-exposition-answer'),
-            data.get('remaining-exposition')
-        )
-        return answerLow('remaining-exposition')
-            ? {
-                  correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`,
-              }
-            : {
-                  correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`,
-              }
+
+        if (data.get('remaining-exposition-answer') === data.get('remaining-exposition')) {
+            return { correction: 'Kvarvarande expositionstid är korrekt, men det är ej de förväntade värdena från dekompressionstabellen som angivits.' }
+        }
+        else {
+            return answerLow('remaining-exposition')
+                ? {
+                    correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`,
+                }
+                : {
+                    correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`,
+                }
+        }
     } else if (data.has('fourth-group')) {
         if (groupAnswerCorrectFor('fourth-group')) {
             return { q4: true }
@@ -129,7 +131,7 @@ export default function UpprepadeDyk() {
         const q1El = progress.q1 ? (
             <strong>{question.resurfaceGroup}</strong>
         ) : (
-            <strong>?</strong>
+            <strong className="animate-bounce">?</strong>
         )
         const q2El = progress.q2 ? (
             <>
@@ -138,13 +140,13 @@ export default function UpprepadeDyk() {
             </>
         ) : (
             <div className="min-w-10 flex justify-end h-full">
-                <strong className="content-end self-end">?</strong>
+                <strong className={classNames("content-end self-end", progress.q1 && "animate-bounce")}>?</strong>
             </div>
         )
         const q3El = progress.q3 ? (
             <div>
                 18 m
-                <div className="">
+                <div>
                     Max dyk tid <strong>{data.group.maxRemaining} min</strong>
                 </div>
                 <div className="pt-4">
@@ -153,14 +155,14 @@ export default function UpprepadeDyk() {
                 </div>
             </div>
         ) : (
-            <div>
+            <div className={classNames( (progress.q1 && progress.q2)  && "animate-pulse")}>
                 18 m
-                <div className="">
+                <div>
                     Max dyk tid <strong>?</strong> min
                 </div>
                 <div className="pt-4">
                     +? min
-                    <div className="">? min</div>
+                    <div>? min</div>
                 </div>
             </div>
         )
@@ -170,7 +172,7 @@ export default function UpprepadeDyk() {
                 <strong>{question.secondResurfaceGroup}</strong>
             </div>
         ) : (
-            <div className="min-w-10 flex h-full">
+            <div className={classNames( "min-w-10 flex h-full", (progress.q1 && progress.q2 && progress.q3) && "animate-bounce")} >
                 <strong className="content-end">?</strong>
             </div>
         )
