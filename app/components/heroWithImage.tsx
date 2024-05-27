@@ -22,7 +22,7 @@ export function HeroWithOffsetImage() {
                         </p>
                     </div>
                     <img
-                        src="/dykupp/diving.png"
+                        src="/dykupp/dykupp-start.jpg"
                         alt="Depths beckon, they call Kirby Morgan, trusted guide Exploring the deep"
                         className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
                     />
