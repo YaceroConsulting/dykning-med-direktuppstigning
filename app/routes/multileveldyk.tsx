@@ -1,16 +1,8 @@
-import { Button, Input } from '@headlessui/react'
-import { RepeatedDive, TwoDives, multilevelDives } from '~/practice'
-import {
-    ClientActionFunctionArgs,
-    ClientLoaderFunctionArgs,
-    Form,
-    useActionData,
-    useLoaderData,
-    useSearchParams,
-} from '@remix-run/react'
+import { Button } from '@headlessui/react'
+import { multilevelDives, RepeatedDive, TwoDives } from '~/practice'
+import { ClientActionFunctionArgs, Form, useActionData } from '@remix-run/react'
 import { useEffect, useState } from 'react'
 import { AcademicCapIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
-import { GroupCombobox } from '~/components/smallCards'
 import { classNames } from '~/components/libs'
 import {
     DecompressionQuestion,
