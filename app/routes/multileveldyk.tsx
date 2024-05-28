@@ -150,7 +150,7 @@ export default function UpprepadeDyk() {
     const answerResult = useActionData<typeof clientAction>()
     const [progress, setProgress] = useState<Progress>(NO_PROGRESS)
     const [question, setQuestion] = useState<RepeatedDive>(
-        new RepeatedDive(multilevelDives(1))
+        new RepeatedDive(multilevelDives())
     )
     const [questions, setQuestions] = useState(0)
     //const [searchParams, setSearchParams] = useSearchParams()

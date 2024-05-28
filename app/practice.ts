@@ -106,6 +106,48 @@ export function multilevelDives(index: number = 0): TwoDives {
             secondDive: { time: 117, depth: 7.5, group: 'J' },
             maxRemaining: { consumed: 79, maxRemaining: 516 },
         },
+        {
+            startTime: startTime,
+            firstDive: { time: 48, depth: 21, group: 'K' },
+            surfaceTime: { hours: 2, minutes: 0, letter: 'I' },
+            secondDive: { time: 20, depth: 15, group: 'L' },
+            maxRemaining: { consumed: 65, maxRemaining: 27 },
+        },
+        {
+            startTime: startTime,
+            firstDive: { time: 110, depth: 10.5, group: 'J' },
+            surfaceTime: { hours: 6, minutes: 0, letter: 'D' },
+            secondDive: { time: 50, depth: 12, group: 'J' },
+            maxRemaining: { consumed: 37, maxRemaining: 126 },
+        },
+        {
+            startTime: startTime,
+            firstDive: { time: 40, depth: 18, group: 'H' },
+            surfaceTime: { hours: 1, minutes: 0, letter: 'G' },
+            secondDive: { time: 30, depth: 15, group: 'K' },
+            maxRemaining: { consumed: 49, maxRemaining: 43 },
+        },
+        {
+            startTime: startTime,
+            firstDive: { time: 50, depth: 9, group: 'D' },
+            surfaceTime: { hours: 1, minutes: 0, letter: 'C' },
+            secondDive: { time: 40, depth: 12, group: 'H' },
+            maxRemaining: { consumed: 29, maxRemaining: 134 },
+        },
+        {
+            startTime: startTime,
+            firstDive: { time: 15, depth: 24, group: 'D' },
+            surfaceTime: { hours: 2, minutes: 0, letter: 'B' },
+            secondDive: { time: 25, depth: 16.5, group: 'G' },
+            maxRemaining: { consumed: 15, maxRemaining: 59 },
+        },
+        {
+            startTime: startTime,
+            firstDive: { time: 24, depth: 27, group: 'H' },
+            surfaceTime: { hours: 3, minutes: 0, letter: 'E' },
+            secondDive: { time: 13, depth: 21, group: 'I' },
+            maxRemaining: { consumed: 25, maxRemaining: 23 },
+        },
     ]
     return result[index % result.length]
 }
