@@ -1,19 +1,36 @@
 import { Button, Input } from '@headlessui/react'
-import { getTwoDives, Group, Hej } from '~/practice'
+import {
+    getTwoDives,
+    RemainingQuestion,
+    RepeatedDive,
+    TwoDives,
+    getTwoDives_multilevel,
+} from '~/practice'
 import {
     ClientActionFunctionArgs,
+    ClientLoaderFunctionArgs,
     Form,
     useActionData,
     useLoaderData,
+    useSearchParams,
 } from '@remix-run/react'
 import { useEffect, useState } from 'react'
-import { AcademicCapIcon } from '@heroicons/react/20/solid'
+import { AcademicCapIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 import { GroupCombobox } from '~/components/smallCards'
 import { classNames } from '~/components/libs'
+import {
+    DecompressionQuestion,
+    MultilevelQuestion,
+} from '~/components/decompressionQuestion'
+import { GroupQuestion } from '~/components/groupQuestion'
 
-export const clientLoader = async () => {
+/*export const clientLoader = async ({request} : ClientLoaderFunctionArgs) => {
+    const { searchParams } = new URL(request.url);
+    searchParams.has("djup");
+    let query = searchParams.get("djup");
+    console.log('Client loader', query)
     return getTwoDives()
-}
+}*/
 
 type Progress = {
     q1: boolean
@@ -30,6 +47,7 @@ export const clientAction = async ({
     q3?: boolean
     q4?: boolean
     correction?: string
+    newQuestion?: TwoDives
 }> => {
     const data = await request.formData()
     console.log('Form keys:', [...data.keys()])
@@ -72,18 +90,48 @@ export const clientAction = async ({
             return { q3: true }
         }
 
-        if (data.get('remaining-exposition-answer') === data.get('remaining-exposition')) {
-            return { correction: 'Kvarvarande expositionstid är korrekt, men det är ej de förväntade värdena från dekompressionstabellen som angivits.' }
-        }
-        else {
+        if (
+            data.get('remaining-exposition-answer') ===
+            data.get('remaining-exposition')
+        ) {
+            return {
+                correction:
+                    'Kvarvarande expositionstid är korrekt, men det är ej de förväntade värdena från dekompressionstabellen som angivits.',
+            }
+        } else {
             return answerLow('remaining-exposition')
                 ? {
-                    correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`,
-                }
+                      correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för låg`,
+                  }
                 : {
-                    correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`,
-                }
+                      correction: `Max kvarvarande expositionstid ${data.get('remaining-exposition-answer')} minuter är för hög`,
+                  }
         }
+    } else if (data.has('max-remaining')) {
+        const answerCorrect = (name: string) =>
+            Number(data.get(`${name}-answer`)) === Number(data.get(name))
+        const answerLow = (name: string) =>
+            Number(data.get(`${name}-answer`)) < Number(data.get(name))
+        const remining = answerCorrect('max-remaining')
+        const consumed = answerCorrect('consumed-exposition')
+        if (remining && consumed) {
+            return { q3: true }
+        } else {
+            if (remining && !consumed) {
+                return {
+                    correction: `Förbrukad expositionstid är ${answerLow('consumed-exposition') ? 'för låg' : 'för hög'} `,
+                }
+            } else if (!remining && consumed) {
+                return {
+                    correction: `Max kvarvarande expositionstid är ${answerLow('max-remaining') ? 'för låg' : 'för hög'}`,
+                }
+            } else {
+                return {
+                    correction: `Max kvarvarande expositionstid är ${answerLow('max-remaining') ? 'för låg' : 'för hög'} och förbrukad expositionstid är ${answerLow('consumed-exposition') ? 'för låg' : 'för hög'}`,
+                }
+            }
+        }
+        //return {q3: remining && consumed}
     } else if (data.has('fourth-group')) {
         if (groupAnswerCorrectFor('fourth-group')) {
             return { q4: true }
@@ -91,6 +139,8 @@ export const clientAction = async ({
         return groupAnswerLowFor('fourth-group')
             ? { correction: LOW_GROUP }
             : { correction: HIGH_GROUP }
+    } else if (data.has('new-question')) {
+        return { newQuestion: getTwoDives() }
     }
     return {}
 }
@@ -101,29 +151,38 @@ const timeFormat = new Intl.DateTimeFormat('sv-SE', {
     hour12: false,
 })
 
+const NO_PROGRESS: Progress = {
+    q1: false,
+    q2: false,
+    q3: false,
+    q4: false,
+}
+
 export default function UpprepadeDyk() {
-    const data = useLoaderData<typeof clientLoader>()
+    //const data = useLoaderData<typeof clientLoader>()
     const answerResult = useActionData<typeof clientAction>()
-    const [progress, setProgress] = useState<Progress>({
-        q1: false,
-        q2: false,
-        q3: false,
-        q4: false,
-    })
-    const [question, setQuestion] = useState<Hej>()
+    const [progress, setProgress] = useState<Progress>(NO_PROGRESS)
+    const [question, setQuestion] = useState<RepeatedDive>(
+        new RepeatedDive(getTwoDives())
+    )
+    //const [searchParams, setSearchParams] = useSearchParams()
 
+    // console.log(progress)
     useEffect(() => {
-        //console.log("Data", data)
-        console.log('Data2', answerResult)
-        if (answerResult === undefined || answerResult.q4) {
-            console.log('Alla frågor besvarade')
-            setQuestion(new Hej(data))
+        if (answerResult) {
+            if (answerResult.newQuestion !== undefined) {
+                setProgress(NO_PROGRESS)
+                setQuestion(new RepeatedDive(answerResult.newQuestion))
+            } else if (
+                answerResult.q1 ||
+                answerResult.q2 ||
+                answerResult.q3 ||
+                answerResult.q4
+            ) {
+                setProgress((p) => ({ ...p, ...answerResult }))
+            }
         }
-
-        if (!answerResult?.correction) {
-            setProgress((p) => ({ ...p, ...answerResult }))
-        }
-    }, [data, answerResult])
+    }, [answerResult])
 
     if (!question) {
         return <div>Laddar innehåll...</div>
@@ -140,30 +199,54 @@ export default function UpprepadeDyk() {
             </>
         ) : (
             <div className="min-w-10 flex justify-end h-full">
-                <strong className={classNames("content-end self-end", progress.q1 && "animate-bounce")}>?</strong>
+                <strong
+                    className={classNames(
+                        'content-end self-end',
+                        progress.q1 && 'animate-bounce'
+                    )}
+                >
+                    ?
+                </strong>
             </div>
         )
         const q3El = progress.q3 ? (
             <div>
-                18 m
                 <div>
-                    Max dyk tid <strong>{data.group.maxRemaining} min</strong>
+                    Dyktid{' '}
+                    <strong>{question.secondDiveMaxRemaining} min</strong>
                 </div>
                 <div className="pt-4">
-                    +{data.group.consumed} min
-                    <div className="">{data.group.maxExposition} min</div>
+                    <strong>+</strong>
+                    {question.penaltyTime} min
+                    <div>
+                        <strong>=</strong>
+                        {question.secondDiveMaxExposition} min
+                    </div>
                 </div>
+                <div>Djup {question.secondDiveDepth} m</div>
             </div>
         ) : (
-            <div className={classNames( (progress.q1 && progress.q2)  && "animate-pulse")}>
-                18 m
+            <div
+                className={classNames(
+                    progress.q1 && progress.q2 && 'animate-pulse'
+                )}
+            >
                 <div>
-                    Max dyk tid <strong>?</strong> min
+                    Dyktid{' '}
+                    <strong>
+                        {question.secondDiveMaxQuestion
+                            ? '?'
+                            : question.secondDiveMaxRemaining}{' '}
+                        min
+                    </strong>
                 </div>
                 <div className="pt-4">
-                    +? min
-                    <div>? min</div>
+                    +<strong>?</strong> min
+                    <div>
+                        =<strong>?</strong> min
+                    </div>
                 </div>
+                <div>Djup {question.secondDiveDepth} m</div>
             </div>
         )
         const q4El = progress.q4 ? (
@@ -172,7 +255,15 @@ export default function UpprepadeDyk() {
                 <strong>{question.secondResurfaceGroup}</strong>
             </div>
         ) : (
-            <div className={classNames( "min-w-10 flex h-full", (progress.q1 && progress.q2 && progress.q3) && "animate-bounce")} >
+            <div
+                className={classNames(
+                    'min-w-10 flex h-full',
+                    progress.q1 &&
+                        progress.q2 &&
+                        progress.q3 &&
+                        'animate-bounce'
+                )}
+            >
                 <strong className="content-end">?</strong>
             </div>
         )
@@ -184,6 +275,8 @@ export default function UpprepadeDyk() {
             </p>
         ) : null
 
+        const completed =
+            progress.q1 && progress.q2 && progress.q3 && progress.q4
         return (
             <div className="py-16">
                 <h1>Upprepade dyk</h1>
@@ -213,9 +306,10 @@ export default function UpprepadeDyk() {
                         {q4El}
                     </div>
                     {/* rad 2 */}
-                    <div className="bg-gradient-to-t from-blue-500 to-blue-300 flex flex-col justify-end col-span-1 col-start-2">
-                        {data.firstDive.depth} m
-                        <div className="">{data.firstDive.time} min</div>
+                    <div className="bg-gradient-to-t from-blue-500 to-blue-300" />
+                    <div className="bg-gradient-to-t from-blue-500 to-blue-300 flex flex-col justify-end col-span-1">
+                        <div>{question.firstDiveTime} min</div>
+                        <div>Djup {question.firstDiveDepth} m</div>
                     </div>
                     <div className="bg-gradient-to-t from-blue-500 to-blue-300  flex flex-col justify-between p-4 col-span-2">
                         <div className="self-end">🐠</div>
@@ -250,7 +344,20 @@ export default function UpprepadeDyk() {
                                 />
                             ) : null}
                             {progress.q1 && progress.q2 && !progress.q3 ? (
-                                <DecompressionQuestion group={data.group} />
+                                question.secondDiveMaxQuestion ? (
+                                    <DecompressionQuestion
+                                        group={question.group}
+                                        depth={question.secondDiveDepth}
+                                    />
+                                ) : (
+                                    <MultilevelQuestion
+                                        group={question.group}
+                                        depth={question.secondDiveDepth}
+                                        diveTime={
+                                            question.secondDiveMaxRemaining
+                                        }
+                                    />
+                                )
                             ) : null}
                             {progress.q1 &&
                             progress.q2 &&
@@ -263,14 +370,22 @@ export default function UpprepadeDyk() {
                                     extra="Uppstigningstid ca 2 minuter"
                                 />
                             ) : null}
-                            {progress.q1 &&
-                            progress.q2 &&
-                            progress.q3 &&
-                            progress.q4 ? (
-                                <div>
+                            {completed ? (
+                                <div className="">
                                     <p className="text-gray-700">
                                         Du har svarat rätt på alla frågor 🎉
                                     </p>
+                                    <Button
+                                        type="submit"
+                                        name="new-question"
+                                        className="rounded bg-indigo-600 py-2 px-4 text-sm text-white data-[hover]:bg-indgo-500 data-[active]:bg-indigo-700 flex gap-2 justify-between"
+                                    >
+                                        <ArrowPathIcon
+                                            className="-ml-0.5 h-5 w-5"
+                                            aria-hidden="true"
+                                        />
+                                        Ny fråga
+                                    </Button>
                                 </div>
                             ) : (
                                 <div className="mt-3">
@@ -293,148 +408,4 @@ export default function UpprepadeDyk() {
             </div>
         )
     }
-}
-
-type GroupQuestionProps = {
-    answer: string
-    name: string
-    question: string
-    extra?: string
-}
-
-function GroupQuestion({ answer, name, question, extra }: GroupQuestionProps) {
-    return (
-        <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-4">
-                <label
-                    htmlFor={`${name}-answer[name]`}
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                    {question}
-                </label>
-                {extra ? (
-                    <p className="text-sm leading-6 text-gray-600">{extra}</p>
-                ) : null}
-                <input type="hidden" name={name} value={answer} />
-                <div className="mt-2 max-w-32">
-                    <GroupCombobox name={`${name}-answer`} />
-                </div>
-            </div>
-        </div>
-    )
-}
-
-type DecompressionQuestionProps = {
-    group: Group
-}
-
-function DecompressionQuestion({ group }: DecompressionQuestionProps) {
-    const [maxExposition, setMaxExposition] = useState<number>()
-    const [consumed, setConsumed] = useState<number>()
-    const [remaining, setRemaining] = useState<number>(0)
-
-    useEffect(() => {
-        if (maxExposition && consumed) {
-            setRemaining(maxExposition - consumed)
-        }
-    }, [maxExposition, consumed])
-
-    return (
-        <>
-            <p className="text-gray-700">
-                Från L-Tabellen räkna fram kvarvarande expositiondstid
-            </p>
-            <input
-                type="hidden"
-                name="max-exposition"
-                value={group.maxExposition}
-            />
-            <input
-                type="hidden"
-                name="consumed-exposition"
-                value={group.consumed}
-            />
-            <input
-                type="hidden"
-                name="remaining-exposition"
-                value={group.maxRemaining}
-            />
-
-            <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="sm:col-span-2 sm:col-start-1">
-                    <label
-                        htmlFor="max-exposition-answer"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                        Max expositionstid för djupet
-                    </label>
-                    <div className="mt-2 flex items-center gap-2">
-                        <Input
-                            autoFocus
-                            type="number"
-                            min="1"
-                            max="595"
-                            name="max-exposition-answer"
-                            autoComplete="off"
-                            required
-                            onChange={(e) =>
-                                setMaxExposition(Number(e.target.value))
-                            }
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                        <strong className="pl-4 text-gray-800 text-xl">
-                            -
-                        </strong>
-                    </div>
-                </div>
-                <div className="sm:col-span-2">
-                    <label
-                        htmlFor="consumed-exposition-answer"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                        Förbrukad expositionstid
-                    </label>
-                    <div className="mt-2 flex items-center gap-2">
-                        <Input
-                            type="number"
-                            min="1"
-                            max="595"
-                            name="consumed-exposition-answer"
-                            autoComplete="off"
-                            required
-                            onChange={(e) =>
-                                setConsumed(Number(e.target.value))
-                            }
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                        <strong className="pl-4 text-gray-800 text-xl">
-                            =
-                        </strong>
-                    </div>
-                </div>
-
-                <div className="sm:col-span-2">
-                    <label
-                        htmlFor="remaining-exposition-answer"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                        Kvarvarande expositionstid
-                    </label>
-                    <div className="mt-2">
-                        <Input
-                            type="text"
-                            name="remaining-exposition-answer"
-                            autoComplete="off"
-                            readOnly
-                            value={remaining}
-                            className={classNames(
-                                'block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
-                                (remaining ?? 0) > -1 ? '' : 'text-red-800'
-                            )}
-                        />
-                    </div>
-                </div>
-            </div>
-        </>
-    )
 }

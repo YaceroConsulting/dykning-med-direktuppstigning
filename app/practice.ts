@@ -93,7 +93,29 @@ function random(min: number = 6, max: number = 13) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+export function getTwoDives_multilevel(): TwoDives {
+    const result: TwoDives = {
+        startTime: new Date(),
+        firstDive: { time: 40, depth: 15, group: 'F' },
+        surfaceTime: { hours: 0, minutes: 55, letter: 'E' },
+        secondDive: { time: 60, depth: 12, group: 'K' },
+        maxRemaining: { consumed: 45, maxRemaining: 118 },
+    }
+    return result
+}
+
 export function getTwoDives(): TwoDives {
+    const result: TwoDives = {
+        startTime: new Date(new Date().setHours(random(6, 13), random(0, 59))),
+        firstDive: { time: 60, depth: 18, group: 'K' },
+        surfaceTime: { hours: 1, minutes: 30, letter: 'J' },
+        secondDive: { time: 60, depth: 18, group: 'K' },
+        maxRemaining: { diveTimeAtDepth: 2, consumed: 58, maxExposition: 60 },
+    }
+    return result
+}
+
+export function getTwoDives_working(): TwoDives {
     const startTime = new Date().setHours(random(6, 13), random(0, 59))
     const firstDiveTime = new Date(startTime).setMinutes(
         new Date(startTime).getMinutes() + 60 + 2
@@ -136,8 +158,7 @@ export type TwoDives = {
     firstDive: Dive
     surfaceTime: SurfaceTime
     secondDive: Dive
-    group: Group
-    //secondResurface: Dive;
+    maxRemaining: RemainingQuestion
 }
 
 export type Dive = {
@@ -146,21 +167,23 @@ export type Dive = {
     group: string
 }
 
-export type Group = {
-    letter: string
-    maxRemaining: number
+export type RemainingQuestion = {
+    diveTimeAtDepth?: number
     consumed: number
-    maxExposition: number
+    maxExposition?: number
+    maxRemaining?: number
 }
 
 export type SurfaceTime = {
     hours: number
     minutes: number
+    letter: string
 }
 
-export class Hej {
+export class RepeatedDive {
     private RESURFACE_TIME = 2
     private data: TwoDives
+
     constructor(data: TwoDives) {
         this.data = data
     }
@@ -198,14 +221,58 @@ export class Hej {
         return date
     }
 
+    get secondDiveDepth() {
+        return this.data.secondDive.depth
+    }
+
+    get secondDiveMaxQuestion() {
+        return this.data.maxRemaining.diveTimeAtDepth !== undefined
+    }
+
+    get secondDiveMaxRemaining() {
+        if (this.secondDiveMaxQuestion) {
+            return this.data.maxRemaining.diveTimeAtDepth
+        } else {
+            return this.data.secondDive.time
+        }
+    }
+
+    get secondDiveMaxExposition() {
+        if (
+            this.secondDiveMaxQuestion &&
+            this.data.maxRemaining.maxExposition
+        ) {
+            return this.data.maxRemaining.maxExposition
+        } else {
+            return this.data.secondDive.time + this.data.maxRemaining.consumed
+        }
+    }
+
+    get penaltyTime() {
+        return this.data.maxRemaining.consumed
+    }
+
     // get second resurface time
     get secondResurfaceTime() {
         const date = this.secondDiveStartTime
-        date.setMinutes(
-            date.getMinutes() +
-                (this.data.group.maxExposition - this.data.group.consumed) +
-                this.RESURFACE_TIME
-        )
+        if (
+            this.secondDiveMaxQuestion &&
+            this.data.maxRemaining.maxExposition
+        ) {
+            date.setMinutes(
+                date.getMinutes() +
+                    (this.data.maxRemaining.maxExposition -
+                        this.data.maxRemaining.consumed) +
+                    this.RESURFACE_TIME
+            )
+        } else {
+            date.setMinutes(
+                date.getMinutes() +
+                    this.secondDiveMaxExposition +
+                    this.RESURFACE_TIME
+            )
+        }
+
         return date
     }
 
@@ -221,11 +288,15 @@ export class Hej {
 
     // get second dive group
     get secondDiveGroup() {
-        return this.data.group.letter
+        return this.data.surfaceTime.letter
     }
 
     // get second resurface group
     get secondResurfaceGroup() {
         return this.data.secondDive.group
+    }
+
+    get group() {
+        return this.data.maxRemaining
     }
 }

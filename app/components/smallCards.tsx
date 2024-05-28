@@ -7,6 +7,7 @@ import {
     Radio,
     RadioGroup,
     Label,
+    ComboboxButton,
 } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
@@ -16,7 +17,7 @@ type GroupName = {
     name: string
 }
 
-const groupNames: Array<GroupName> = [
+const GROUP_NAMES: Array<GroupName> = [
     { name: 'A' },
     { name: 'B' },
     { name: 'C' },
@@ -59,7 +60,7 @@ export function SmallCards({
             <RadioGroup className="mt-2" name="groupAnswer">
                 <Label className="sr-only">{readerLabel}</Label>
                 <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
-                    {groupNames.map((option) => (
+                    {GROUP_NAMES.map((option) => (
                         <Radio
                             key={option.name}
                             value={option.name}
@@ -106,8 +107,8 @@ export function GroupCombobox({ name }: { name: string }) {
 
     const filteredPeople =
         query === ''
-            ? groupNames
-            : groupNames.filter((group) => {
+            ? GROUP_NAMES
+            : GROUP_NAMES.filter((group) => {
                   return group.name.toLowerCase().includes(query.toLowerCase())
               })
 
@@ -129,13 +130,14 @@ export function GroupCombobox({ name }: { name: string }) {
                     onChange={(event) => setQuery(event.target.value)}
                     onBlur={() => setQuery('')}
                     displayValue={(group) => group?.name}
+                    required
                 />
-                <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
+                <ComboboxButton className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
                     <ChevronUpDownIcon
                         className="h-5 w-5 text-gray-400"
                         aria-hidden="true"
                     />
-                </Combobox.Button>
+                </ComboboxButton>
 
                 {filteredPeople.length > 0 && (
                     <ComboboxOptions className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">

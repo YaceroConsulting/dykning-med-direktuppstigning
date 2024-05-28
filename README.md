@@ -2,7 +2,9 @@
 
 [![Build and deploy](https://github.com/YaceroConsulting/dykupp/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/YaceroConsulting/dykupp/actions/workflows/build-deploy.yml)
 
-This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/future/spa-mode) and the [Remix Vite Plugin](https://remix.run/docs/en/main/future/vite) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
+This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/future/spa-mode) and
+the [Remix Vite Plugin](https://remix.run/docs/en/main/future/vite) to build your app as a Single-Page Application
+using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
 
 Frontpage Haiku generated with the help of [PartyRock](https://partyrock.aws/u/partyrock/jAJQ4WYAS/Haiku-Creator)
 
@@ -15,9 +17,11 @@ Frontpage Haiku generated with the help of [PartyRock](https://partyrock.aws/u/p
 ## Data
 
 All data values are stored in JSON files. The data is extracted from the Swedish Navy's diving tables.
-The filenames below are described by the Swedish description from the original source table U.S. Navy Diving Manual (USN rev 6)
+The filenames below are described by the Swedish description from the original source table U.S. Navy Diving Manual (USN
+rev 6)
 
--   `expositionstid.json` - _Maximal expositionstid samt gruppbeteckning efter dykning med direktuppstigning_. Före ytintervall.
+-   `expositionstid.json` - _Maximal expositionstid samt gruppbeteckning efter dykning med direktuppstigning_. Före
+    ytintervall.
 -   `ytintervall.json` - _Ytintervall för upprepade dyk med direktuppstigning_
 -   `dekompression.json` - _Gruppbetckning efter ytintervall_
 
@@ -29,9 +33,30 @@ You can develop your SPA app just like you would a normal Remix app, via:
 npm run dev
 ```
 
+### Testing and Linting
+
+To run unit tests:
+
+```shellscript
+npm run test
+```
+
+To format your code:
+
+```shellscript
+npm run format
+```
+
+To lint your code:
+
+```shellscript
+npm run lint
+```
+
 ## Production
 
-When you are ready to build a production version of your app, `npm run build` will generate your assets and an `index.html` for the SPA.
+When you are ready to build a production version of your app, `npm run build` will generate your assets and
+an `index.html` for the SPA.
 
 ```shellscript
 npm run build
