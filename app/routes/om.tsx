@@ -49,7 +49,7 @@ const people: Array<Person> = [
         name: 'Alexander Gimerus',
         role: 'Bollplank och idé till denna applikation',
         gitHubUrl: '',
-        imageUrl: 'diver-avatar.jpg',
+        imageUrl: 'alexander-avatar.jpg',
     },
     {
         name: 'Daria Lykova',
@@ -59,7 +59,7 @@ const people: Array<Person> = [
     },
     {
         name: 'Marcus Holmgren',
-        role: 'Design och vidareutveckling av denna Remix SPA',
+        role: 'Design och vidareutveckling av upprepade och multi-level dyk för denna Remix SPA',
         gitHubUrl: 'https://github.com/marcusholmgren',
         imageUrl: 'https://avatars.githubusercontent.com/u/183957?v=4',
     },

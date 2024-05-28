@@ -1,11 +1,5 @@
 import { Button, Input } from '@headlessui/react'
-import {
-    repeatedDives,
-    RemainingQuestion,
-    RepeatedDive,
-    TwoDives,
-    multilevelDives,
-} from '~/practice'
+import { RepeatedDive, TwoDives, multilevelDives } from '~/practice'
 import {
     ClientActionFunctionArgs,
     ClientLoaderFunctionArgs,
@@ -14,7 +8,6 @@ import {
     useLoaderData,
     useSearchParams,
 } from '@remix-run/react'
-import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { AcademicCapIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 import { GroupCombobox } from '~/components/smallCards'
@@ -132,7 +125,9 @@ export const clientAction = async ({
             ? { correction: LOW_GROUP }
             : { correction: HIGH_GROUP }
     } else if (data.has('new-question')) {
-        return { newQuestion: repeatedDives(Number(data.get('new-question'))) }
+        return {
+            newQuestion: multilevelDives(Number(data.get('new-question'))),
+        }
     }
     return {}
 }
@@ -151,13 +146,16 @@ const NO_PROGRESS: Progress = {
 }
 
 export default function UpprepadeDyk() {
+    //const data = useLoaderData<typeof clientLoader>()
     const answerResult = useActionData<typeof clientAction>()
     const [progress, setProgress] = useState<Progress>(NO_PROGRESS)
     const [question, setQuestion] = useState<RepeatedDive>(
-        new RepeatedDive(repeatedDives())
+        new RepeatedDive(multilevelDives(1))
     )
     const [questions, setQuestions] = useState(0)
+    //const [searchParams, setSearchParams] = useSearchParams()
 
+    // console.log(progress)
     useEffect(() => {
         if (answerResult) {
             if (answerResult.newQuestion !== undefined) {
@@ -270,7 +268,7 @@ export default function UpprepadeDyk() {
             progress.q1 && progress.q2 && progress.q3 && progress.q4
         return (
             <div className="py-16">
-                <h1>Upprepade dyk</h1>
+                <h1>Flernivå dyk</h1>
                 <p>...</p>
                 <div className="grid grid-cols-6">
                     <div className="bg-gradient-to-b from-orange-200 to-white flex flex-col justify-between">
@@ -303,9 +301,9 @@ export default function UpprepadeDyk() {
                         <div>Djup {question.firstDiveDepth} m</div>
                     </div>
                     <div className="bg-gradient-to-t from-blue-500 to-blue-300  flex flex-col justify-between p-4 col-span-2">
-                        <div className="self-end">🐠</div>
-                        <div className="self-center scale-125">🐡</div>
-                        <div className="self-start scale-150">🐟</div>
+                        <div className="self-start">🐠</div>
+                        <div className="self-center scale-150">🐟</div>
+                        <div className="self-end scale-125">🐡</div>
                     </div>
 
                     <div className="bg-gradient-to-t from-blue-500 to-blue-300 col-start-5 col-span-2">
@@ -331,7 +329,7 @@ export default function UpprepadeDyk() {
                                 <GroupQuestion
                                     answer={question.secondDiveGroup}
                                     name="second-group"
-                                    question={`Men en yttid på ${question.surfaceTime} sedan föregående dyk, vilken gruppbeteckning har du vid nedstigning?`}
+                                    question={`Men en yttid på ${question.surfaceTime} sedan föregående dyk, vilken gruppbeteckning efter ytintervall gäller?`}
                                 />
                             ) : null}
                             {progress.q1 && progress.q2 && !progress.q3 ? (
@@ -371,8 +369,7 @@ export default function UpprepadeDyk() {
                                         type="hidden"
                                         name="new-question"
                                     />
-                                    <motion.button
-                                        whileTap={{ scale: 0.9 }}
+                                    <Button
                                         type="submit"
                                         className="rounded bg-indigo-600 py-2 px-4 text-sm text-white data-[hover]:bg-indgo-500 data-[active]:bg-indigo-700 flex gap-2 justify-between"
                                     >
@@ -381,7 +378,7 @@ export default function UpprepadeDyk() {
                                             aria-hidden="true"
                                         />
                                         Ny fråga
-                                    </motion.button>
+                                    </Button>
                                 </div>
                             ) : (
                                 <div className="mt-3">

@@ -11,10 +11,10 @@ const navigation = [
         name: 'Upprepade dyk',
         href: '/dykupp/upprepadedyk',
     },
-    /*    {
+    {
         name: 'Multilevel dyk',
         href: '/dykupp/multileveldyk',
-    },*/
+    },
     { name: 'Om', href: '/dykupp/om' },
 ]
 
