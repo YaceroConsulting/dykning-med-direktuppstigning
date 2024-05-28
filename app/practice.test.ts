@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getDiveGroupQuestions, checkDiveGroupAnswer } from './practice'
+import { checkDiveGroupAnswer, getDiveGroupQuestions } from './practice'
 
 test('skapa en direktuppstigningsfråga', () => {
     const result = getDiveGroupQuestions()
@@ -13,62 +13,63 @@ test('skapa en direktuppstigningsfråga', () => {
 
 describe('dykning med direktuppstigning före ytintervall', () => {
     test('direktuppstigning 3 m & 57 min -> group A', () => {
-        const result = checkDiveGroupAnswer(3, 57, 'A')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(3, 57, 'A')).toBeTruthy()
     })
 
     test('direktuppstigning 18 m & 60 min -> group K', () => {
-        const result = checkDiveGroupAnswer(18, 60, 'K')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(18, 60, 'K')).toBeTruthy()
     })
 
     test('direktuppstigning 27.8 m & 4 min -> group A', () => {
-        const result = checkDiveGroupAnswer(27.8, 4, 'A')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(27.8, 4, 'A')).toBeTruthy()
     })
 
     test('direktuppstigning 3.1 m & 440 min -> group H', () => {
-        const result = checkDiveGroupAnswer(3.1, 440, 'H')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(3.1, 440, 'H')).toBeTruthy()
     })
 
     test('direktuppstigning 39.7 m & 4 min -> group B', () => {
-        const result = checkDiveGroupAnswer(39.7, 4, 'B')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(39.7, 4, 'B')).toBeTruthy()
     })
 
     test('direktuppstigning 37.3 m & 8 min -> group D', () => {
-        const result = checkDiveGroupAnswer(37.3, 8, 'D')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(37.3, 8, 'D')).toBeTruthy()
     })
 
     test('direktuppstigning 24.5 m & 24 min -> group G', () => {
-        const result = checkDiveGroupAnswer(24.5, 24, 'G')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(24.5, 24, 'G')).toBeTruthy()
     })
 
     test('direktuppstigning 8.4 m & 208 min -> group M', () => {
-        const result = checkDiveGroupAnswer(8.4, 208, 'M')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(8.4, 208, 'M')).toBeTruthy()
     })
 
     test('direktuppstigning 11.6 m & 140 min -> group N', () => {
-        const result = checkDiveGroupAnswer(11.6, 140, 'N')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(11.6, 140, 'N')).toBeTruthy()
     })
 
     test('direktuppstigning 16.5 m & 30 min -> group E', () => {
-        const result = checkDiveGroupAnswer(16.5, 30, 'E')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(16.5, 30, 'E')).toBeTruthy()
     })
 
     test('direktuppstigning 32 m & 13 min -> group E', () => {
-        const result = checkDiveGroupAnswer(32, 13, 'E')
-        expect(result).toBe(true)
+        expect(checkDiveGroupAnswer(3, 57, 'A')).toBeTruthy()
     })
 
     test('direktuppstigning 48 m & 13 min -> group Q', () => {
-        const result = checkDiveGroupAnswer(48, 13, 'Q')
-        expect(result).toBe(false)
+        expect(checkDiveGroupAnswer(48, 13, 'Q')).toBeFalsy()
+    })
+
+    test('direktuppstining 7.5 m & 196 min -> group J', () => {
+        expect(checkDiveGroupAnswer(7.5, 196, 'J')).toBeTruthy()
+    })
+
+    test('verify the questions', () => {
+        expect(checkDiveGroupAnswer(12, 45 + 60, 'K')).toBeTruthy()
+        expect(checkDiveGroupAnswer(7.5, 117 + 79, 'J')).toBeTruthy()
+        expect(checkDiveGroupAnswer(18, 58 + 2, 'K')).toBeTruthy()
+        expect(checkDiveGroupAnswer(12, 60 + 21, 'I')).toBeTruthy()
+        expect(checkDiveGroupAnswer(6, 160 + 63, 'I')).toBeTruthy()
+        expect(checkDiveGroupAnswer(16.4, 58 + 16, 'L')).toBeTruthy()
     })
 })

@@ -3,297 +3,900 @@
         {
             "depth": 3,
             "combinations": [
-                { "time_submerged": 57, "dive_group": "A" },
-                { "time_submerged": 101, "dive_group": "B" },
-                { "time_submerged": 158, "dive_group": "C" },
-                { "time_submerged": 245, "dive_group": "D" },
-                { "time_submerged": 426, "dive_group": "E" },
-                { "time_submerged": 600, "dive_group": "F" }
+                {
+                    "time_submerged": 57,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 101,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 158,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 245,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 426,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 600,
+                    "dive_group": "F"
+                }
             ]
         },
         {
             "depth": 4.5,
             "combinations": [
-                { "time_submerged": 36, "dive_group": "A" },
-                { "time_submerged": 60, "dive_group": "B" },
-                { "time_submerged": 88, "dive_group": "C" },
-                { "time_submerged": 121, "dive_group": "D" },
-                { "time_submerged": 163, "dive_group": "E" },
-                { "time_submerged": 217, "dive_group": "F" },
-                { "time_submerged": 297, "dive_group": "G" },
-                { "time_submerged": 449, "dive_group": "H" },
-                { "time_submerged": 600, "dive_group": "I" }
+                {
+                    "time_submerged": 36,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 60,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 88,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 121,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 163,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 217,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 297,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 449,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 600,
+                    "dive_group": "I"
+                }
             ]
         },
         {
             "depth": 6,
             "combinations": [
-                { "time_submerged": 26, "dive_group": "A" },
-                { "time_submerged": 43, "dive_group": "B" },
-                { "time_submerged": 61, "dive_group": "C" },
-                { "time_submerged": 82, "dive_group": "D" },
-                { "time_submerged": 106, "dive_group": "E" },
-                { "time_submerged": 133, "dive_group": "F" },
-                { "time_submerged": 165, "dive_group": "G" },
-                { "time_submerged": 205, "dive_group": "H" },
-                { "time_submerged": 256, "dive_group": "I" },
-                { "time_submerged": 330, "dive_group": "J" },
-                { "time_submerged": 461, "dive_group": "K" },
-                { "time_submerged": 600, "dive_group": "L" }
+                {
+                    "time_submerged": 26,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 43,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 61,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 82,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 106,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 133,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 165,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 205,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 256,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 330,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 461,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 600,
+                    "dive_group": "L"
+                }
             ]
         },
         {
             "depth": 7.5,
             "combinations": [
-                { "time_submerged": 20, "dive_group": "A" },
-                { "time_submerged": 33, "dive_group": "B" },
-                { "time_submerged": 47, "dive_group": "C" },
-                { "time_submerged": 62, "dive_group": "D" },
-                { "time_submerged": 78, "dive_group": "E" },
-                { "time_submerged": 97, "dive_group": "F" },
-                { "time_submerged": 117, "dive_group": "G" },
-                { "time_submerged": 140, "dive_group": "H" },
-                { "time_submerged": 166, "dive_group": "I" },
-                { "time_submerged": 198, "dive_group": "J" },
-                { "time_submerged": 236, "dive_group": "K" },
-                { "time_submerged": 285, "dive_group": "L" },
-                { "time_submerged": 354, "dive_group": "M" },
-                { "time_submerged": 469, "dive_group": "N" },
-                { "time_submerged": 595, "dive_group": "O" }
+                {
+                    "time_submerged": 20,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 33,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 47,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 62,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 78,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 97,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 117,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 140,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 166,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 198,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 236,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 285,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 354,
+                    "dive_group": "M"
+                },
+                {
+                    "time_submerged": 469,
+                    "dive_group": "N"
+                },
+                {
+                    "time_submerged": 595,
+                    "dive_group": "O"
+                }
             ]
         },
         {
             "depth": 9,
             "combinations": [
-                { "time_submerged": 17, "dive_group": "A" },
-                { "time_submerged": 27, "dive_group": "B" },
-                { "time_submerged": 38, "dive_group": "C" },
-                { "time_submerged": 50, "dive_group": "D" },
-                { "time_submerged": 62, "dive_group": "E" },
-                { "time_submerged": 76, "dive_group": "F" },
-                { "time_submerged": 91, "dive_group": "G" },
-                { "time_submerged": 107, "dive_group": "H" },
-                { "time_submerged": 125, "dive_group": "I" },
-                { "time_submerged": 145, "dive_group": "J" },
-                { "time_submerged": 167, "dive_group": "K" },
-                { "time_submerged": 193, "dive_group": "L" },
-                { "time_submerged": 223, "dive_group": "M" },
-                { "time_submerged": 260, "dive_group": "N" },
-                { "time_submerged": 307, "dive_group": "O" },
-                { "time_submerged": 371, "dive_group": "Z" }
+                {
+                    "time_submerged": 17,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 27,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 38,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 50,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 62,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 76,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 91,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 107,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 125,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 145,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 167,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 193,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 223,
+                    "dive_group": "M"
+                },
+                {
+                    "time_submerged": 260,
+                    "dive_group": "N"
+                },
+                {
+                    "time_submerged": 307,
+                    "dive_group": "O"
+                },
+                {
+                    "time_submerged": 371,
+                    "dive_group": "Z"
+                }
             ]
         },
         {
             "depth": 10.5,
             "combinations": [
-                { "time_submerged": 14, "dive_group": "A" },
-                { "time_submerged": 23, "dive_group": "B" },
-                { "time_submerged": 32, "dive_group": "C" },
-                { "time_submerged": 42, "dive_group": "D" },
-                { "time_submerged": 52, "dive_group": "E" },
-                { "time_submerged": 63, "dive_group": "F" },
-                { "time_submerged": 74, "dive_group": "G" },
-                { "time_submerged": 87, "dive_group": "H" },
-                { "time_submerged": 100, "dive_group": "I" },
-                { "time_submerged": 115, "dive_group": "J" },
-                { "time_submerged": 131, "dive_group": "K" },
-                { "time_submerged": 148, "dive_group": "L" },
-                { "time_submerged": 168, "dive_group": "M" },
-                { "time_submerged": 190, "dive_group": "N" },
-                { "time_submerged": 215, "dive_group": "O" },
-                { "time_submerged": 232, "dive_group": "Z" }
+                {
+                    "time_submerged": 14,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 23,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 32,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 42,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 52,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 63,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 74,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 87,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 100,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 115,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 131,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 148,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 168,
+                    "dive_group": "M"
+                },
+                {
+                    "time_submerged": 190,
+                    "dive_group": "N"
+                },
+                {
+                    "time_submerged": 215,
+                    "dive_group": "O"
+                },
+                {
+                    "time_submerged": 232,
+                    "dive_group": "Z"
+                }
             ]
         },
         {
             "depth": 12,
             "combinations": [
-                { "time_submerged": 12, "dive_group": "A" },
-                { "time_submerged": 20, "dive_group": "B" },
-                { "time_submerged": 27, "dive_group": "C" },
-                { "time_submerged": 36, "dive_group": "D" },
-                { "time_submerged": 44, "dive_group": "E" },
-                { "time_submerged": 53, "dive_group": "F" },
-                { "time_submerged": 63, "dive_group": "G" },
-                { "time_submerged": 73, "dive_group": "H" },
-                { "time_submerged": 84, "dive_group": "I" },
-                { "time_submerged": 95, "dive_group": "J" },
-                { "time_submerged": 108, "dive_group": "K" },
-                { "time_submerged": 121, "dive_group": "L" },
-                { "time_submerged": 135, "dive_group": "M" },
-                { "time_submerged": 151, "dive_group": "N" },
-                { "time_submerged": 163, "dive_group": "O" }
+                {
+                    "time_submerged": 12,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 20,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 27,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 36,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 44,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 53,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 63,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 73,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 84,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 95,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 108,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 121,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 135,
+                    "dive_group": "M"
+                },
+                {
+                    "time_submerged": 151,
+                    "dive_group": "N"
+                },
+                {
+                    "time_submerged": 163,
+                    "dive_group": "O"
+                }
             ]
         },
         {
             "depth": 13.5,
             "combinations": [
-                { "time_submerged": 11, "dive_group": "A" },
-                { "time_submerged": 17, "dive_group": "B" },
-                { "time_submerged": 24, "dive_group": "C" },
-                { "time_submerged": 31, "dive_group": "D" },
-                { "time_submerged": 39, "dive_group": "E" },
-                { "time_submerged": 46, "dive_group": "F" },
-                { "time_submerged": 55, "dive_group": "G" },
-                { "time_submerged": 63, "dive_group": "H" },
-                { "time_submerged": 72, "dive_group": "I" },
-                { "time_submerged": 82, "dive_group": "J" },
-                { "time_submerged": 92, "dive_group": "K" },
-                { "time_submerged": 102, "dive_group": "L" },
-                { "time_submerged": 114, "dive_group": "M" },
-                { "time_submerged": 125, "dive_group": "N" }
+                {
+                    "time_submerged": 11,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 17,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 24,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 31,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 39,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 46,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 55,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 63,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 72,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 82,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 92,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 102,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 114,
+                    "dive_group": "M"
+                },
+                {
+                    "time_submerged": 125,
+                    "dive_group": "N"
+                }
             ]
         },
         {
             "depth": 15,
             "combinations": [
-                { "time_submerged": 9, "dive_group": "A" },
-                { "time_submerged": 15, "dive_group": "B" },
-                { "time_submerged": 21, "dive_group": "C" },
-                { "time_submerged": 28, "dive_group": "D" },
-                { "time_submerged": 34, "dive_group": "E" },
-                { "time_submerged": 41, "dive_group": "F" },
-                { "time_submerged": 48, "dive_group": "G" },
-                { "time_submerged": 56, "dive_group": "H" },
-                { "time_submerged": 63, "dive_group": "I" },
-                { "time_submerged": 71, "dive_group": "J" },
-                { "time_submerged": 80, "dive_group": "K" },
-                { "time_submerged": 89, "dive_group": "L" },
-                { "time_submerged": 92, "dive_group": "M" }
+                {
+                    "time_submerged": 9,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 15,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 21,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 28,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 34,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 41,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 48,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 56,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 63,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 71,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 80,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 89,
+                    "dive_group": "L"
+                },
+                {
+                    "time_submerged": 92,
+                    "dive_group": "M"
+                }
             ]
         },
         {
             "depth": 16.5,
             "combinations": [
-                { "time_submerged": 8, "dive_group": "A" },
-                { "time_submerged": 14, "dive_group": "B" },
-                { "time_submerged": 19, "dive_group": "C" },
-                { "time_submerged": 25, "dive_group": "D" },
-                { "time_submerged": 31, "dive_group": "E" },
-                { "time_submerged": 37, "dive_group": "F" },
-                { "time_submerged": 43, "dive_group": "G" },
-                { "time_submerged": 50, "dive_group": "H" },
-                { "time_submerged": 56, "dive_group": "I" },
-                { "time_submerged": 63, "dive_group": "J" },
-                { "time_submerged": 71, "dive_group": "K" },
-                { "time_submerged": 74, "dive_group": "L" }
+                {
+                    "time_submerged": 8,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 14,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 19,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 25,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 31,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 37,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 43,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 50,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 56,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 63,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 71,
+                    "dive_group": "K"
+                },
+                {
+                    "time_submerged": 74,
+                    "dive_group": "L"
+                }
             ]
         },
         {
             "depth": 18,
             "combinations": [
-                { "time_submerged": 7, "dive_group": "A" },
-                { "time_submerged": 12, "dive_group": "B" },
-                { "time_submerged": 17, "dive_group": "C" },
-                { "time_submerged": 22, "dive_group": "D" },
-                { "time_submerged": 28, "dive_group": "E" },
-                { "time_submerged": 33, "dive_group": "F" },
-                { "time_submerged": 39, "dive_group": "G" },
-                { "time_submerged": 45, "dive_group": "H" },
-                { "time_submerged": 51, "dive_group": "I" },
-                { "time_submerged": 57, "dive_group": "J" },
-                { "time_submerged": 60, "dive_group": "K" }
+                {
+                    "time_submerged": 7,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 12,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 17,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 22,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 28,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 33,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 39,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 45,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 51,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 57,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 60,
+                    "dive_group": "K"
+                }
             ]
         },
         {
             "depth": 21,
             "combinations": [
-                { "time_submerged": 6, "dive_group": "A" },
-                { "time_submerged": 10, "dive_group": "B" },
-                { "time_submerged": 14, "dive_group": "C" },
-                { "time_submerged": 19, "dive_group": "D" },
-                { "time_submerged": 23, "dive_group": "E" },
-                { "time_submerged": 28, "dive_group": "F" },
-                { "time_submerged": 32, "dive_group": "G" },
-                { "time_submerged": 37, "dive_group": "H" },
-                { "time_submerged": 42, "dive_group": "I" },
-                { "time_submerged": 47, "dive_group": "J" },
-                { "time_submerged": 48, "dive_group": "K" }
+                {
+                    "time_submerged": 6,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 10,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 14,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 19,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 23,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 28,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 32,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 37,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 42,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 47,
+                    "dive_group": "J"
+                },
+                {
+                    "time_submerged": 48,
+                    "dive_group": "K"
+                }
             ]
         },
         {
             "depth": 24,
             "combinations": [
-                { "time_submerged": 5, "dive_group": "A" },
-                { "time_submerged": 9, "dive_group": "B" },
-                { "time_submerged": 12, "dive_group": "C" },
-                { "time_submerged": 16, "dive_group": "D" },
-                { "time_submerged": 20, "dive_group": "E" },
-                { "time_submerged": 24, "dive_group": "F" },
-                { "time_submerged": 28, "dive_group": "G" },
-                { "time_submerged": 32, "dive_group": "H" },
-                { "time_submerged": 36, "dive_group": "I" },
-                { "time_submerged": 39, "dive_group": "J" }
+                {
+                    "time_submerged": 5,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 9,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 12,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 16,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 20,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 24,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 28,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 32,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 36,
+                    "dive_group": "I"
+                },
+                {
+                    "time_submerged": 39,
+                    "dive_group": "J"
+                }
             ]
         },
         {
             "depth": 27,
             "combinations": [
-                { "time_submerged": 4, "dive_group": "A" },
-                { "time_submerged": 7, "dive_group": "B" },
-                { "time_submerged": 11, "dive_group": "C" },
-                { "time_submerged": 14, "dive_group": "D" },
-                { "time_submerged": 17, "dive_group": "E" },
-                { "time_submerged": 21, "dive_group": "F" },
-                { "time_submerged": 24, "dive_group": "G" },
-                { "time_submerged": 28, "dive_group": "H" },
-                { "time_submerged": 30, "dive_group": "I" }
+                {
+                    "time_submerged": 4,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 7,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 11,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 14,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 17,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 21,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 24,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 28,
+                    "dive_group": "H"
+                },
+                {
+                    "time_submerged": 30,
+                    "dive_group": "I"
+                }
             ]
         },
         {
             "depth": 30,
             "combinations": [
-                { "time_submerged": 4, "dive_group": "A" },
-                { "time_submerged": 6, "dive_group": "B" },
-                { "time_submerged": 9, "dive_group": "C" },
-                { "time_submerged": 12, "dive_group": "D" },
-                { "time_submerged": 15, "dive_group": "E" },
-                { "time_submerged": 18, "dive_group": "F" },
-                { "time_submerged": 21, "dive_group": "G" },
-                { "time_submerged": 25, "dive_group": "H" }
+                {
+                    "time_submerged": 4,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 6,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 9,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 12,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 15,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 18,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 21,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 25,
+                    "dive_group": "H"
+                }
             ]
         },
         {
             "depth": 33,
             "combinations": [
-                { "time_submerged": 3, "dive_group": "A" },
-                { "time_submerged": 6, "dive_group": "B" },
-                { "time_submerged": 8, "dive_group": "C" },
-                { "time_submerged": 11, "dive_group": "D" },
-                { "time_submerged": 14, "dive_group": "E" },
-                { "time_submerged": 16, "dive_group": "F" },
-                { "time_submerged": 19, "dive_group": "G" },
-                { "time_submerged": 20, "dive_group": "H" }
+                {
+                    "time_submerged": 3,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 6,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 8,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 11,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 14,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 16,
+                    "dive_group": "F"
+                },
+                {
+                    "time_submerged": 19,
+                    "dive_group": "G"
+                },
+                {
+                    "time_submerged": 20,
+                    "dive_group": "H"
+                }
             ]
         },
         {
             "depth": 36,
             "combinations": [
-                { "time_submerged": 3, "dive_group": "A" },
-                { "time_submerged": 5, "dive_group": "B" },
-                { "time_submerged": 7, "dive_group": "C" },
-                { "time_submerged": 10, "dive_group": "D" },
-                { "time_submerged": 12, "dive_group": "E" },
-                { "time_submerged": 15, "dive_group": "F" }
+                {
+                    "time_submerged": 3,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 5,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 7,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 10,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 12,
+                    "dive_group": "E"
+                },
+                {
+                    "time_submerged": 15,
+                    "dive_group": "F"
+                }
             ]
         },
         {
             "depth": 39,
             "combinations": [
-                { "time_submerged": 2, "dive_group": "A" },
-                { "time_submerged": 4, "dive_group": "B" },
-                { "time_submerged": 6, "dive_group": "C" },
-                { "time_submerged": 9, "dive_group": "D" },
-                { "time_submerged": 10, "dive_group": "E" }
+                {
+                    "time_submerged": 2,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 4,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 6,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 9,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 10,
+                    "dive_group": "E"
+                }
             ]
         },
         {
             "depth": 42,
             "combinations": [
-                { "time_submerged": 2, "dive_group": "A" },
-                { "time_submerged": 4, "dive_group": "B" },
-                { "time_submerged": 6, "dive_group": "C" },
-                { "time_submerged": 8, "dive_group": "D" },
-                { "time_submerged": 10, "dive_group": "E" }
+                {
+                    "time_submerged": 2,
+                    "dive_group": "A"
+                },
+                {
+                    "time_submerged": 4,
+                    "dive_group": "B"
+                },
+                {
+                    "time_submerged": 6,
+                    "dive_group": "C"
+                },
+                {
+                    "time_submerged": 8,
+                    "dive_group": "D"
+                },
+                {
+                    "time_submerged": 10,
+                    "dive_group": "E"
+                }
             ]
         }
     ]
