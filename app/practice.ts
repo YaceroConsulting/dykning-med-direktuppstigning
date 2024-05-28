@@ -104,15 +104,39 @@ export function getTwoDives_multilevel(): TwoDives {
     return result
 }
 
-export function getTwoDives(): TwoDives {
-    const result: TwoDives = {
-        startTime: new Date(new Date().setHours(random(6, 13), random(0, 59))),
+export function repeatedDives(index: number = 0): TwoDives {
+    const startTime = new Date(new Date().setHours(random(6, 13), random(0, 59)))
+    const result: Array<TwoDives> =  [{
+        startTime: startTime,
         firstDive: { time: 60, depth: 18, group: 'K' },
         surfaceTime: { hours: 1, minutes: 30, letter: 'J' },
         secondDive: { time: 60, depth: 18, group: 'K' },
         maxRemaining: { diveTimeAtDepth: 2, consumed: 58, maxExposition: 60 },
-    }
-    return result
+    },
+    {
+        startTime: startTime,
+        firstDive: { time: 13, depth: 12, group: 'B' },
+        surfaceTime: { hours: 0, minutes: 30, letter: 'B' },
+        secondDive: { time: 60, depth: 12, group: 'H' },
+        maxRemaining: { consumed: 21, maxRemaining: 142 },
+
+    },
+        {
+            startTime: startTime,
+            firstDive: { time: 140, depth: 6, group: 'F' },
+            surfaceTime: { hours: 1, minutes: 45, letter: 'D' },
+            secondDive: { time: 160, depth: 6, group: 'H' },
+            maxRemaining: { consumed: 63, maxRemaining: 532 },
+
+        },
+    {
+        startTime: startTime,
+        firstDive: { time: 72, depth: 17, group: 'K' },
+        surfaceTime: { hours: 2, minutes: 30, letter: 'I' },
+        secondDive: { time: 58, depth: 17, group: 'L' },
+        maxRemaining: { diveTimeAtDepth: 16, consumed: 58, maxExposition: 74 },
+    },]
+    return result[index % result.length]
 }
 
 export function getTwoDives_working(): TwoDives {

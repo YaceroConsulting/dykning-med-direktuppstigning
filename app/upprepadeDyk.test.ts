@@ -2,7 +2,7 @@ import { expect, test, describe } from 'vitest'
 import {
     getDiveGroup,
     getSurfaceInterval,
-    getSurfaceInterval2,
+    getSurfaceInterval2, repeatedDives,
     RepeatedDive,
     TwoDives,
 } from './practice'

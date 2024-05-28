@@ -1,6 +1,6 @@
 import { Button, Input } from '@headlessui/react'
 import {
-    getTwoDives,
+    repeatedDives,
     RemainingQuestion,
     RepeatedDive,
     TwoDives,
@@ -140,7 +140,7 @@ export const clientAction = async ({
             ? { correction: LOW_GROUP }
             : { correction: HIGH_GROUP }
     } else if (data.has('new-question')) {
-        return { newQuestion: getTwoDives() }
+        return { newQuestion: repeatedDives(Number(data.get('new-question'))) }
     }
     return {}
 }
@@ -163,8 +163,9 @@ export default function UpprepadeDyk() {
     const answerResult = useActionData<typeof clientAction>()
     const [progress, setProgress] = useState<Progress>(NO_PROGRESS)
     const [question, setQuestion] = useState<RepeatedDive>(
-        new RepeatedDive(getTwoDives())
+        new RepeatedDive(repeatedDives())
     )
+    const [questions, setQuestions] = useState(0)
     //const [searchParams, setSearchParams] = useSearchParams()
 
     // console.log(progress)
@@ -173,6 +174,7 @@ export default function UpprepadeDyk() {
             if (answerResult.newQuestion !== undefined) {
                 setProgress(NO_PROGRESS)
                 setQuestion(new RepeatedDive(answerResult.newQuestion))
+                setQuestions((q) => q + 1)
             } else if (
                 answerResult.q1 ||
                 answerResult.q2 ||
@@ -375,9 +377,9 @@ export default function UpprepadeDyk() {
                                     <p className="text-gray-700">
                                         Du har svarat rätt på alla frågor 🎉
                                     </p>
+                                    <input value={questions} type="hidden" name="new-question" />
                                     <Button
                                         type="submit"
-                                        name="new-question"
                                         className="rounded bg-indigo-600 py-2 px-4 text-sm text-white data-[hover]:bg-indgo-500 data-[active]:bg-indigo-700 flex gap-2 justify-between"
                                     >
                                         <ArrowPathIcon
