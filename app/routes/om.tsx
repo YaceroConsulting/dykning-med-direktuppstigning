@@ -47,7 +47,7 @@ type Person = {
 const people: Array<Person> = [
     {
         name: 'Alexander Gimerus',
-        role: 'Bollplank och idé till denna applikation',
+        role: 'Initiativtagare och bollplank till denna applikation',
         gitHubUrl: '',
         imageUrl: 'alexander-avatar.jpg',
     },
@@ -59,7 +59,7 @@ const people: Array<Person> = [
     },
     {
         name: 'Marcus Holmgren',
-        role: 'Design och vidareutveckling av upprepade och multi-level dyk för denna Remix SPA',
+        role: 'Design och vidareutveckling med upprepade och multi-level dyk för denna Remix SPA',
         gitHubUrl: 'https://github.com/marcusholmgren',
         imageUrl: 'https://avatars.githubusercontent.com/u/183957?v=4',
     },
