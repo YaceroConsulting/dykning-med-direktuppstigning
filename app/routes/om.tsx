@@ -8,6 +8,19 @@ export default function Om() {
             />
 
             <Flaticon />
+            <div className="bg-white px-6 py-0 lg:px-8">
+                <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 text-base leading-7 text-gray-700">
+                    <div className="mx-auto max-w-2xl lg:mx-0">
+                        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                            Work with us
+                        </h2>
+                        <p className="mt-6 text-lg leading-8 text-gray-500">
+                            Svar på frågor utgår från dykningstabell{' '}
+                            <i>US Navy Dive Manuals Rev 6</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </main>
     )
 }
@@ -59,7 +72,7 @@ const people: Array<Person> = [
     },
     {
         name: 'Marcus Holmgren',
-        role: 'Design och vidareutveckling med upprepade och multi-level dyk för denna Remix SPA',
+        role: 'Design och vidareutveckling med upprepade dyk för denna Remix SPA',
         gitHubUrl: 'https://github.com/marcusholmgren',
         imageUrl: 'https://avatars.githubusercontent.com/u/183957?v=4',
     },

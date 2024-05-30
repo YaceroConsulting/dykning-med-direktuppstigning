@@ -112,7 +112,6 @@ export function GroupCombobox({ name }: { name: string }) {
                   return group.name.toLowerCase().includes(query.toLowerCase())
               })
 
-    console.log('group name', name)
     return (
         <Combobox
             name={name}

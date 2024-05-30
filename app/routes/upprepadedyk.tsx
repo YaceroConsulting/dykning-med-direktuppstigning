@@ -139,12 +139,13 @@ const NO_PROGRESS: Progress = {
 export default function UpprepadeDyk() {
     const answerResult = useActionData<typeof clientAction>()
     const [progress, setProgress] = useState<Progress>(NO_PROGRESS)
-    const [question, setQuestion] = useState<RepeatedDive>(
-        new RepeatedDive(repeatedDives())
-    )
-    const [questions, setQuestions] = useState(0)
+    const [question, setQuestion] = useState<RepeatedDive>()
+    const [questions, setQuestions] = useState(Math.floor(Math.random() * 14))
 
     useEffect(() => {
+        if (!question) {
+            setQuestion(new RepeatedDive(repeatedDives(questions)))
+        }
         if (answerResult) {
             if (answerResult.newQuestion !== undefined) {
                 setProgress(NO_PROGRESS)
@@ -159,7 +160,7 @@ export default function UpprepadeDyk() {
                 setProgress((p) => ({ ...p, ...answerResult }))
             }
         }
-    }, [answerResult])
+    }, [answerResult, question, questions])
 
     if (!question) {
         return <div>Laddar innehåll...</div>
@@ -256,8 +257,14 @@ export default function UpprepadeDyk() {
             progress.q1 && progress.q2 && progress.q3 && progress.q4
         return (
             <div className="py-16">
-                <h1>Upprepade dyk</h1>
-                <p>...</p>
+                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    <h3 className="text-base font-semibold leading-6 text-gray-900">
+                        Upprepade dyk
+                    </h3>
+                    <p className="leading-8 text-gray-700">
+                        Värden utgår från tabell US Navy Dive Manual Rev 6
+                    </p>
+                </div>
                 <div className="grid grid-cols-6">
                     <div className="bg-gradient-to-b from-orange-200 to-white flex flex-col justify-between">
                         🌞 Dykstart {timeFormat.format(question?.startTime)}
@@ -317,7 +324,7 @@ export default function UpprepadeDyk() {
                                 <GroupQuestion
                                     answer={question.secondDiveGroup}
                                     name="second-group"
-                                    question={`Men en yttid på ${question.surfaceTime} sedan föregående dyk, vilken gruppbeteckning har du vid nedstigning?`}
+                                    question={`Men en yttid på ${question.surfaceTime} sedan föregående dyk, vilken gruppbeteckning gäller för dyket?`}
                                 />
                             ) : null}
                             {progress.q1 && progress.q2 && !progress.q3 ? (
