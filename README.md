@@ -104,3 +104,8 @@ To learn more about the technologies used in this site template, see the followi
 -   [React](https://react.dev) - the official React documentation
 -   [clsx](https://github.com/lukeed/clsx) - the GitHub repo for the `clsx` helper
 -   [Diver icons created by Skyclick](https://www.flaticon.com/free-icons/diver) - Flaticon
+
+Landing page image generated with DALL-E 3 OpenAI model.
+
+Prompt used: "An illustration of a helmeted commercial diver receiving oxygen from a tube from the surface portrayed underwater with a school of fish."
+
